@@ -18,17 +18,33 @@ type VideoHeroProps = {
   chipRight?: string;
 };
 
+const principles = [
+  {
+    number: "01",
+    title: "Research-led planning",
+    description:
+      "We study your organisation, audience and objectives before shaping the experience.",
+  },
+  {
+    number: "02",
+    title: "Sharp production",
+    description:
+      "Creative direction, production design, technology and vendor orchestration.",
+  },
+  {
+    number: "03",
+    title: "Calm show-day execution",
+    description:
+      "Rehearsals, technical checks and contingency planning for zero-surprise delivery.",
+  },
+];
+
 export default function VideoHero({
   youtubeId,
   poster,
 
   eyebrow = "EVENTOSS ENTERTAINMENT · EST. 2012 · 410+ CLIENTS",
 
-  /*
-   * IMPORTANT:
-   * We intentionally keep the default title here.
-   * This avoids the old white text classes from Home.tsx.
-   */
   title = (
     <>
       <span className="block text-[13px] lg:text-[15px] tracking-[0.18em] font-semibold text-[#0F2A3D]/40 mb-4">
@@ -83,10 +99,7 @@ export default function VideoHero({
   const heroRef = useRef<HTMLElement>(null);
 
   /*
-   * Scroll progress is ONLY used for the video movement.
-   *
-   * We deliberately DO NOT use scroll progress
-   * to hide the second frame.
+   * Scroll progress is ONLY used for video movement.
    */
   const { scrollYProgress } = useScroll({
     target: heroRef,
@@ -110,9 +123,8 @@ export default function VideoHero({
       ============================================================ */}
 
       <div className="relative h-[calc(100svh-64px)] min-h-[620px] bg-[#0F2A3D] overflow-hidden">
-        {/* ----------------------------------------------------------
-            VIDEO
-        ---------------------------------------------------------- */}
+
+        {/* VIDEO */}
 
         <motion.div
           style={{
@@ -159,15 +171,11 @@ export default function VideoHero({
           />
         </motion.div>
 
-        {/* ----------------------------------------------------------
-            VERY LIGHT VIDEO OVERLAY
-        ---------------------------------------------------------- */}
+        {/* VIDEO OVERLAY */}
 
         <div className="absolute inset-0 bg-black/10 pointer-events-none" />
 
-        {/* ----------------------------------------------------------
-            TOP LEFT CHIP
-        ---------------------------------------------------------- */}
+        {/* TOP LEFT CHIP */}
 
         <div className="absolute top-6 lg:top-8 left-6 lg:left-10 z-20">
           <span
@@ -186,9 +194,7 @@ export default function VideoHero({
           </span>
         </div>
 
-        {/* ----------------------------------------------------------
-            TOP RIGHT CHIP
-        ---------------------------------------------------------- */}
+        {/* TOP RIGHT CHIP */}
 
         <div className="absolute top-6 lg:top-8 right-6 lg:right-10 z-20 hidden lg:block">
           <span
@@ -207,9 +213,7 @@ export default function VideoHero({
           </span>
         </div>
 
-        {/* ----------------------------------------------------------
-            BOTTOM LEFT LABEL
-        ---------------------------------------------------------- */}
+        {/* BOTTOM LEFT LABEL */}
 
         <div className="absolute bottom-8 left-6 lg:left-10 z-20">
           <span className="label-sm text-white/65">
@@ -217,9 +221,7 @@ export default function VideoHero({
           </span>
         </div>
 
-        {/* ----------------------------------------------------------
-            SCROLL INDICATOR
-        ---------------------------------------------------------- */}
+        {/* SCROLL INDICATOR */}
 
         <div
           className="
@@ -254,7 +256,6 @@ export default function VideoHero({
 
       {/* ============================================================
           FRAME 02
-          ALL TEXT + CONTENT
       ============================================================ */}
 
       <section className="relative min-h-[100svh] bg-[#F4F3F0] flex items-center">
@@ -287,12 +288,12 @@ export default function VideoHero({
           <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-center mt-12 lg:mt-16">
 
             {/* ======================================================
-                LEFT SIDE — HEADING
+                LEFT SIDE
             ====================================================== */}
 
             <div className="lg:col-span-7 relative">
 
-              {/* Huge editorial 00 */}
+              {/* HUGE EDITORIAL 00 */}
 
               <span
                 className="
@@ -314,15 +315,13 @@ export default function VideoHero({
 
               <div className="relative text-[#0F2A3D]">
 
-                {/* Eyebrow */}
+                {/* EYEBROW */}
 
                 <p className="label-sm text-[#0F2A3D]/40">
                   {eyebrow}
                 </p>
 
-                {/* ==================================================
-                    MAIN HEADING
-                ================================================== */}
+                {/* MAIN HEADING */}
 
                 <h1
                   className="
@@ -337,9 +336,7 @@ export default function VideoHero({
                   {title}
                 </h1>
 
-                {/* ==================================================
-                    DESCRIPTION
-                ================================================== */}
+                {/* DESCRIPTION */}
 
                 {subcopy && (
                   <p
@@ -356,9 +353,7 @@ export default function VideoHero({
                   </p>
                 )}
 
-                {/* ==================================================
-                    CTA AREA
-                ================================================== */}
+                {/* CTA AREA */}
 
                 <div
                   className="
@@ -447,205 +442,443 @@ export default function VideoHero({
             </div>
 
             {/* ======================================================
-                RIGHT SIDE
+                RIGHT SIDE — PRINCIPLES
             ====================================================== */}
 
-            <div className="lg:col-span-5 text-[#0F2A3D]">
+            <div className="lg:col-span-5">
 
               {/* ====================================================
-                  PRINCIPLES
+                  PRINCIPLES OUTER CARD
               ==================================================== */}
 
-              <div className="border-t border-[#0F2A3D]/10">
+              <motion.div
+                initial={{
+                  opacity: 0,
+                  y: 20,
+                }}
+                whileInView={{
+                  opacity: 1,
+                  y: 0,
+                }}
+                viewport={{
+                  once: true,
+                  amount: 0.25,
+                }}
+                transition={{
+                  duration: 0.7,
+                  ease: [0.22, 1, 0.36, 1],
+                }}
+                className="
+                  relative
+                  border
+                  border-[#0F2A3D]/15
+                  bg-white/30
+                  backdrop-blur-[2px]
+                "
+              >
 
-                {/* 01 */}
+                {/* ==================================================
+                    CARD HEADER
+                ================================================== */}
 
-                <div className="py-6 lg:py-7 border-b border-[#0F2A3D]/10">
-
-                  <div className="flex gap-5">
-
-                    <span className="label-sm text-[#0F2A3D]/25">
-                      01
+                <div
+                  className="
+                    flex
+                    items-center
+                    justify-between
+                    px-5
+                    lg:px-7
+                    py-5
+                    border-b
+                    border-[#0F2A3D]/10
+                  "
+                >
+                  <div>
+                    <span className="label-sm text-[#0F2A3D]/35">
+                      OUR PROCESS
                     </span>
 
-                    <div>
-
-                      <h3
-                        className="text-[21px] lg:text-[26px] leading-none"
-                        style={{
-                          fontFamily: "var(--font-playfair)",
-                        }}
-                      >
-                        Research-led planning
-                      </h3>
-
-                      <p className="text-[13px] leading-6 text-[#0F2A3D]/50 mt-3 max-w-[390px]">
-                        We study your organisation, audience and
-                        objectives before shaping the experience.
-                      </p>
-
-                    </div>
+                    <h2
+                      className="
+                        mt-2
+                        text-[25px]
+                        lg:text-[31px]
+                        leading-none
+                        text-[#0F2A3D]
+                      "
+                      style={{
+                        fontFamily: "var(--font-playfair)",
+                      }}
+                    >
+                      Built with intent.
+                    </h2>
                   </div>
+
+                  {/* <motion.div
+                    animate={{
+                      rotate: [0, 90, 0],
+                    }}
+                    transition={{
+                      duration: 5,
+                      repeat: Infinity,
+                      ease: "easeInOut",
+                    }}
+                    className="
+                      w-9
+                      h-9
+                      rounded-full
+                      border
+                      border-[#FF3D00]/30
+                      flex
+                      items-center
+                      justify-center
+                      text-[#FF3D00]
+                      text-sm
+                    "
+                  >
+                    +
+                  </motion.div> */}
                 </div>
 
-                {/* 02 */}
+                {/* ==================================================
+                    PRINCIPLE ITEMS
+                ================================================== */}
 
-                <div className="py-6 lg:py-7 border-b border-[#0F2A3D]/10">
+                <div className="p-3 lg:p-4">
 
-                  <div className="flex gap-5">
+                  {principles.map((item) => (
+                    <motion.div
+                      key={item.number}
+                      initial="rest"
+                      whileHover="hover"
+                      whileTap="hover"
+                      variants={{
+                        rest: {
+                          backgroundColor: "rgba(15,42,61,0)",
+                          scale: 1,
+                        },
+                        hover: {
+                          backgroundColor: "#0F2A3D",
+                          scale: 1.015,
+                        },
+                      }}
+                      transition={{
+                        duration: 0.4,
+                        ease: [0.22, 1, 0.36, 1],
+                      }}
+                      className="
+                        group
+                        relative
+                        overflow-hidden
+                        px-4
+                        lg:px-5
+                        py-6
+                        lg:py-7
+                        cursor-default
+                      "
+                    >
+                      {/* =========================================================
+                          GHOST NUMBER
+                          BEHIND THE CONTENT
+                      ========================================================= */}
 
-                    <span className="label-sm text-[#0F2A3D]/25">
-                      02
-                    </span>
-
-                    <div>
-
-                      <h3
-                        className="text-[21px] lg:text-[26px] leading-none"
-                        style={{
-                          fontFamily: "var(--font-playfair)",
+                      <motion.span
+                        variants={{
+                          rest: {
+                            opacity: 0,
+                            scale: 0.85,
+                            x: 30,
+                          },
+                          hover: {
+                            opacity: 0.075,
+                            scale: 1,
+                            x: 0,
+                          },
                         }}
-                      >
-                        Sharp production
-                      </h3>
-
-                      <p className="text-[13px] leading-6 text-[#0F2A3D]/50 mt-3 max-w-[390px]">
-                        Creative direction, production design,
-                        technology and vendor orchestration.
-                      </p>
-
-                    </div>
-                  </div>
-                </div>
-
-                {/* 03 */}
-
-                <div className="py-6 lg:py-7 border-b border-[#0F2A3D]/10">
-
-                  <div className="flex gap-5">
-
-                    <span className="label-sm text-[#0F2A3D]/25">
-                      03
-                    </span>
-
-                    <div>
-
-                      <h3
-                        className="text-[21px] lg:text-[26px] leading-none"
-                        style={{
-                          fontFamily: "var(--font-playfair)",
+                        transition={{
+                          duration: 0.55,
+                          ease: [0.22, 1, 0.36, 1],
                         }}
+                        className="
+                          absolute
+                          z-0
+                          right-[18%]
+                          top-1/2
+                          -translate-y-1/2
+                          text-[150px]
+                          lg:text-[190px]
+                          leading-none
+                          font-black
+                          text-white
+                          pointer-events-none
+                          select-none
+                          tracking-[-0.08em]
+                        "
                       >
-                        Calm show-day execution
-                      </h3>
+                        {item.number}
+                      </motion.span>
 
-                      <p className="text-[13px] leading-6 text-[#0F2A3D]/50 mt-3 max-w-[390px]">
-                        Rehearsals, technical checks and
-                        contingency planning for zero-surprise
-                        delivery.
-                      </p>
+                      {/* =========================================================
+                          ORANGE TOP LINE
+                      ========================================================= */}
 
-                    </div>
-                  </div>
+                      <motion.span
+                        variants={{
+                          rest: {
+                            scaleX: 0,
+                            opacity: 0,
+                          },
+                          hover: {
+                            scaleX: 1,
+                            opacity: 1,
+                          },
+                        }}
+                        transition={{
+                          duration: 0.55,
+                          ease: [0.22, 1, 0.36, 1],
+                        }}
+                        className="
+                          absolute
+                          z-20
+                          top-0
+                          left-0
+                          right-0
+                          h-[2px]
+                          bg-[#FF3D00]
+                          origin-left
+                        "
+                      />
+
+                      {/* =========================================================
+                          CONTENT
+                          z-10 = ABOVE GHOST NUMBER
+                      ========================================================= */}
+
+                      <div className="relative z-10 flex gap-5 lg:gap-6">
+
+                        {/* NUMBER */}
+
+                        <motion.div
+                          variants={{
+                            rest: {
+                              color: "rgba(15,42,61,0.28)",
+                              y: 0,
+                              scale: 1,
+                            },
+                            hover: {
+                              color: "#FF3D00",
+                              y: -3,
+                              scale: 1.08,
+                            },
+                          }}
+                          transition={{
+                            duration: 0.4,
+                            ease: [0.22, 1, 0.36, 1],
+                          }}
+                          className="
+                            shrink-0
+                            w-[42px]
+                            lg:w-[50px]
+                            pt-1
+                            text-[13px]
+                            font-semibold
+                            tracking-[0.08em]
+                          "
+                        >
+                          {item.number}
+                        </motion.div>
+
+                        {/* TEXT */}
+
+                        <div className="flex-1 min-w-0">
+
+                          <div className="flex items-start justify-between gap-4">
+
+                            <motion.h3
+                              variants={{
+                                rest: {
+                                  color: "#0F2A3D",
+                                  x: 0,
+                                },
+                                hover: {
+                                  color: "#FFFFFF",
+                                  x: 4,
+                                },
+                              }}
+                              transition={{
+                                duration: 0.35,
+                              }}
+                              className="
+                                text-[20px]
+                                lg:text-[24px]
+                                leading-[1]
+                                tracking-[-0.02em]
+                              "
+                              style={{
+                                fontFamily: "var(--font-playfair)",
+                              }}
+                            >
+                              {item.title}
+                            </motion.h3>
+
+                            {/* ARROW 
+
+                            <motion.span
+                              variants={{
+                                rest: {
+                                  opacity: 0,
+                                  x: -8,
+                                  y: 8,
+                                  rotate: -45,
+                                },
+                                hover: {
+                                  opacity: 1,
+                                  x: 0,
+                                  y: 0,
+                                  rotate: 0,
+                                },
+                              }}
+                              transition={{
+                                duration: 0.4,
+                                ease: [0.22, 1, 0.36, 1],
+                              }}
+                              className="
+                                shrink-0
+                                w-8
+                                h-8
+                                rounded-full
+                                bg-[#FF3D00]
+                                text-white
+                                flex
+                                items-center
+                                justify-center
+                                text-sm
+                              "
+                            >
+                              ↗
+                            </motion.span>*/}
+
+                          </div>
+
+                          {/* DESCRIPTION */}
+
+                          <motion.p
+                            variants={{
+                              rest: {
+                                color: "rgba(15,42,61,0.50)",
+                                x: 0,
+                              },
+                              hover: {
+                                color: "rgba(255,255,255,0.68)",
+                                x: 4,
+                              },
+                            }}
+                            transition={{
+                              duration: 0.35,
+                            }}
+                            className="
+                              text-[12px]
+                              lg:text-[13px]
+                              leading-6
+                              mt-3
+                              max-w-[390px]
+                            "
+                          >
+                            {item.description}
+                          </motion.p>
+
+                          {/* PROGRESS LINE */}
+
+                          <div className="relative mt-5 h-px bg-[#0F2A3D]/8 overflow-hidden">
+
+                            <motion.span
+                              variants={{
+                                rest: {
+                                  x: "-100%",
+                                },
+                                hover: {
+                                  x: "0%",
+                                },
+                              }}
+                              transition={{
+                                duration: 0.7,
+                                ease: [0.22, 1, 0.36, 1],
+                              }}
+                              className="
+                                absolute
+                                inset-y-0
+                                left-0
+                                w-full
+                                bg-[#FF3D00]
+                              "
+                            />
+
+                          </div>
+
+                        </div>
+                      </div>
+
+                      {/* =========================================================
+                          BOTTOM ORANGE LINE
+                      ========================================================= */}
+
+                      <motion.span
+                        variants={{
+                          rest: {
+                            scaleX: 0,
+                            opacity: 0,
+                          },
+                          hover: {
+                            scaleX: 1,
+                            opacity: 1,
+                          },
+                        }}
+                        transition={{
+                          duration: 0.65,
+                          delay: 0.05,
+                          ease: [0.22, 1, 0.36, 1],
+                        }}
+                        className="
+                          absolute
+                          z-20
+                          bottom-0
+                          left-0
+                          right-0
+                          h-px
+                          bg-[#FF3D00]/70
+                          origin-right
+                        "
+                      />
+                    </motion.div>
+                  ))}
                 </div>
 
-              </div>
+                {/* ==================================================
+                    CARD FOOTER
+                ================================================== */}
 
-              {/* ====================================================
-                  STATS
-              ==================================================== */}
+                <div
+                  className="
+                    px-5
+                    lg:px-7
+                    py-4
+                    border-t
+                    border-[#0F2A3D]/10
+                    flex
+                    items-center
+                    justify-between
+                  "
+                >
+                  <span className="label-sm text-[#0F2A3D]/30">
+                    PLAN · PRODUCE · EXECUTE
+                  </span>
 
-              <div className="grid grid-cols-2 border border-[#0F2A3D]/10 mt-7">
-
-                {/* 12+ */}
-
-                <div className="p-5 lg:p-6 border-r border-b border-[#0F2A3D]/10">
-
-                  <p
-                    className="
-                      text-[42px]
-                      lg:text-[58px]
-                      font-black
-                      leading-none
-                      tracking-[-0.05em]
-                    "
-                  >
-                    12+
-                  </p>
-
-                  <p className="label-sm text-[#0F2A3D]/30 mt-2">
-                    YEARS
-                  </p>
-
+                  <span className="label-sm text-[#FF3D00]/70">
+                    01 — 03
+                  </span>
                 </div>
 
-                {/* 410+ */}
-
-                <div className="p-5 lg:p-6 border-b border-[#0F2A3D]/10">
-
-                  <p
-                    className="
-                      text-[42px]
-                      lg:text-[58px]
-                      font-black
-                      leading-none
-                      tracking-[-0.05em]
-                    "
-                  >
-                    410+
-                  </p>
-
-                  <p className="label-sm text-[#0F2A3D]/30 mt-2">
-                    CLIENTS
-                  </p>
-
-                </div>
-
-                {/* 4700+ */}
-
-                <div className="p-5 lg:p-6 border-r border-[#0F2A3D]/10">
-
-                  <p
-                    className="
-                      text-[42px]
-                      lg:text-[58px]
-                      font-black
-                      leading-none
-                      tracking-[-0.05em]
-                    "
-                  >
-                    4,700+
-                  </p>
-
-                  <p className="label-sm text-[#0F2A3D]/30 mt-2">
-                    PROJECTS
-                  </p>
-
-                </div>
-
-                {/* 8 */}
-
-                <div className="p-5 lg:p-6">
-
-                  <p
-                    className="
-                      text-[42px]
-                      lg:text-[58px]
-                      font-black
-                      leading-none
-                      tracking-[-0.05em]
-                    "
-                  >
-                    8
-                  </p>
-
-                  <p className="label-sm text-[#0F2A3D]/30 mt-2">
-                    OFFICES
-                  </p>
-
-                </div>
-
-              </div>
+              </motion.div>
             </div>
           </div>
 
@@ -665,7 +898,6 @@ export default function VideoHero({
               items-center
             "
           >
-
             <span className="label-sm text-[#0F2A3D]/25">
               CORPORATE EVENTS · PAN-INDIA
             </span>
@@ -677,7 +909,6 @@ export default function VideoHero({
             <span className="label-sm text-[#0F2A3D]/25">
               12+ YEARS
             </span>
-
           </div>
 
         </div>
