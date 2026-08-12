@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Search, X, Menu, ArrowUpRight } from "lucide-react";
 import { services } from "@/data/services";
+import { useConsultationModal } from "./ConsultationModalProvider";
 
 export default function Navbar() {
   const pathname = usePathname();
@@ -13,6 +14,7 @@ export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [servicesOpen, setServicesOpen] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
+  const { openConsultation } = useConsultationModal();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 14);
@@ -106,7 +108,7 @@ export default function Navbar() {
             <button onClick={() => setSearchOpen(!searchOpen)} className="hidden lg:flex w-8 h-8 items-center justify-center rounded-full border border-white/15 text-white/70 hover:bg-white hover:text-[#0F2A3D] hover:border-white hover:rotate-90 transition-all duration-300" aria-label="Search">
               <Search className="w-[13px] h-[13px]" />
             </button>
-            <Link href="/contact" className="hidden lg:inline-flex items-center gap-2 bg-white text-[#0F2A3D] px-5 h-8 label-sm hover:bg-[#FF3D00] hover:text-white hover:gap-3 transition-all duration-300 text-[10px]">Get Consultation</Link>
+            <button onClick={() => openConsultation("navbar-desktop")} className="hidden lg:inline-flex items-center gap-2 bg-white text-[#0F2A3D] px-5 h-8 label-sm hover:bg-[#FF3D00] hover:text-white hover:gap-3 transition-all duration-300 text-[10px]">Get Consultation</button>
             <button onClick={() => setMobileOpen(!mobileOpen)} className="lg:hidden w-9 h-9 flex items-center justify-center text-white" aria-label="Menu">
               {mobileOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
             </button>
@@ -157,7 +159,15 @@ export default function Navbar() {
                 </div>
               </nav>
               <div className="mt-10 space-y-3">
-                <Link href="/contact" className="flex w-full bg-white text-[#0F2A3D] h-12 items-center justify-center label-sm">Get Consultation</Link>
+                <button
+                  onClick={() => {
+                    setMobileOpen(false);
+                    openConsultation("navbar-mobile");
+                  }}
+                  className="flex w-full bg-white text-[#0F2A3D] h-12 items-center justify-center label-sm"
+                >
+                  Get Consultation
+                </button>
                 <div className="flex gap-3 text-white/50 text-sm">
                   <a href="tel:+917061528401">+91 70615 28401</a>
                   <span>·</span>

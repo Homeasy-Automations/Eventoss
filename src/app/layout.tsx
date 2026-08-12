@@ -8,6 +8,8 @@ import SmoothScroll from "@/components/SmoothScroll";
 import PageTransition from "@/components/PageTransition";
 import FloatingCTA from "@/components/FloatingCTA";
 import AmbientBackground from "@/components/AmbientBackground";
+import { ConsultationModalProvider } from "@/components/ConsultationModalProvider";
+import ConsultationModal from "@/components/ConsultationModal";
 
 const playfair = Playfair_Display({
   subsets: ["latin"],
@@ -54,21 +56,24 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en" className={`${playfair.variable} ${cormorant.variable} ${jost.variable}`}>
       <body className="antialiased text-[#0F2A3D]">
-        {/* Viewport-fixed, mounted once — same background on every route.
-            Sibling of <main>, not inside it, so it never remounts on
-            navigation and can't be clipped by PageTransition's motion.div. */}
-        <AmbientBackground />
+        <ConsultationModalProvider>
+          {/* Viewport-fixed, mounted once — same background on every route.
+              Sibling of <main>, not inside it, so it never remounts on
+              navigation and can't be clipped by PageTransition's motion.div. */}
+          <AmbientBackground />
 
-        <SmoothScroll />
-        <CustomCursor />
-        <Navbar />
-        <PageTransition>
-          <main className="relative z-10">{children}</main>
-        </PageTransition>
-        <FloatingCTA />
-        <div className="relative z-10">
-          <Footer />
-        </div>
+          <SmoothScroll />
+          <CustomCursor />
+          <Navbar />
+          <PageTransition>
+            <main className="relative z-10">{children}</main>
+          </PageTransition>
+          <FloatingCTA />
+          <div className="relative z-10">
+            <Footer />
+          </div>
+          <ConsultationModal />
+        </ConsultationModalProvider>
       </body>
     </html>
   );
