@@ -5,15 +5,15 @@ export default function Footer() {
     <footer className="bg-[#0F2A3D] text-white">
       {/* Large editorial wordmark — reference has huge BOLLE */}
       <div className="border-b border-white/10 overflow-hidden">
-        <div className="mx-auto max-w-[1920px] px-6 lg:px-10">
-          <h2 className="text-[19vw] lg:text-[16vw] font-black leading-none tracking-[-0.05em] py-6 lg:py-8 whitespace-nowrap select-none" style={{ fontFamily: "var(--font-inter)" }}>
+        <div className="mx-auto max-w-[1920px] px-6 lg:px-10 flex justify-center">
+          <h2 className="text-[19vw] lg:text-[16vw] font-black leading-none tracking-[-0.05em] py-6 lg:py-8 whitespace-nowrap select-none text-center" style={{ fontFamily: "var(--font-inter)" }}>
             EVENTOSS
           </h2>
         </div>
       </div>
 
       <div className="mx-auto max-w-[1920px] px-6 lg:px-10 py-12 lg:py-14">
-        <div className="grid grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-8">
+        <div className="grid grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-8 justify-center lg:max-w-[1400px] lg:mx-auto">
           <div className="col-span-2 lg:col-span-3">
             <p className="label-sm text-white/35 mb-6">Connect with us</p>
             <div className="space-y-2.5 text-[13px] leading-6">
@@ -89,7 +89,7 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="mt-14 pt-6 border-t border-white/10 flex flex-col lg:flex-row justify-between gap-3">
+        <div className="mt-14 pt-6 border-t border-white/10 flex flex-col items-center text-center lg:flex-row lg:items-center lg:text-left justify-center lg:justify-between gap-3">
           <p className="label-sm text-white/25 text-[9px]">© Eventoss Entertainment Pvt Ltd. All rights reserved.</p>
           <p className="label-sm text-white/25 text-[9px]">Corporate Events Division · Patna · Delhi · Ranchi</p>
         </div>
