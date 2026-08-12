@@ -6,8 +6,8 @@ import Reveal from "@/components/Reveal";
 import WordReveal from "@/components/WordReveal";
 
 export const metadata: Metadata = {
-  title: "Services — 7 Event Verticals | Eventoss",
-  description: "Seven specialised event verticals — corporate, brand experiences, MICE, exhibitions, live entertainment, government, and sports — planned with research, creative direction, and show-day precision.",
+  title: "Services — 8 Event Verticals | Eventoss",
+  description: "Eight specialised event verticals — corporate, brand experiences, conferences & conventions, MICE, exhibitions, live entertainment, government, and sports — planned with research, creative direction, and show-day precision.",
 };
 
 export default function ServicesPage() {
@@ -17,7 +17,7 @@ export default function ServicesPage() {
       <section className="pt-[60px]">
         <div className="mx-auto max-w-[1920px] px-6 lg:px-10">
           <div className="flex justify-between items-center py-3 border-b border-[#0F2A3D]/10">
-            <span className="label-sm opacity-30">Services — 7 Verticals</span>
+            <span className="label-sm opacity-30">Services — 8 Verticals</span>
             <span className="label-sm opacity-30">Research → Concept → Develop → Test</span>
           </div>
 
@@ -28,10 +28,10 @@ export default function ServicesPage() {
                 <WordReveal as="span" className="block ml-[12%]" text="FORMAT." delay={0.08} />
                 <WordReveal as="span" className="block" text="ONE STANDARD." delay={0.16} />
               </h1>
-              <p className="label-sm opacity-30 mt-4 tracking-[0.2em]">CORPORATE · BRAND · MICE · EXHIBITIONS · ENTERTAINMENT · GOVERNMENT · SPORTS</p>
+              <p className="label-sm opacity-30 mt-4 tracking-[0.2em]">CORPORATE · BRAND · CONFERENCES · MICE · EXHIBITIONS · ENTERTAINMENT · GOVERNMENT · SPORTS</p>
             </div>
             <div className="lg:col-span-4 flex flex-col justify-end">
-              <p className="text-[14px] leading-6 opacity-60">Seven specialised event verticals — each planned with research, creative direction, and show-day precision.</p>
+              <p className="text-[14px] leading-6 opacity-60">Eight specialised event verticals — each planned with research, creative direction, and show-day precision.</p>
               <div className="hairline mt-6" />
               <p className="label-sm opacity-30 mt-3">Est. 2012 · Pan-India · Founder-led</p>
             </div>
@@ -41,7 +41,7 @@ export default function ServicesPage() {
             src="/images/eventoss-hero-stage.jpg"
             alt="Eventoss corporate event production"
             chipLeft="Full Catalogue"
-            chipRight="7 Verticals · Pan-India"
+            chipRight="8 Verticals · Pan-India"
             quote="No templates, no generic party planning."
             quoteAttribution="Eventoss Corporate Events"
             heightClassName="h-[320px] lg:h-[420px]"

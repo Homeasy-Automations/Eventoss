@@ -92,3 +92,24 @@ export const clientRoster: ClientEntry[] = [
   { slug: "airtel-4g-launch-video", client: "Airtel", description: "4G launch video production.", category: "Media Production & Films" , logo: "/logos/airtel.png" },
   { slug: "anshul-homes-ad-video", client: "Anshul Homes", description: "Ad video production.", category: "Media Production & Films" },
 ];
+
+/**
+ * De-duplicated view of the roster above — one card per brand. Several
+ * brands recur across multiple engagements (e.g. Airtel, Bharti Infratel,
+ * VIVO); we keep the first (earliest-listed) engagement's description and
+ * category, but adopt a logo from any of that brand's other engagements
+ * if the first one didn't have one on file.
+ */
+export const brandRoster: ClientEntry[] = (() => {
+  const byName = new Map<string, ClientEntry>();
+  for (const entry of clientRoster) {
+    const key = entry.client.trim().toLowerCase();
+    const existing = byName.get(key);
+    if (!existing) {
+      byName.set(key, entry);
+    } else if (!existing.logo && entry.logo) {
+      byName.set(key, { ...existing, logo: entry.logo });
+    }
+  }
+  return Array.from(byName.values());
+})();

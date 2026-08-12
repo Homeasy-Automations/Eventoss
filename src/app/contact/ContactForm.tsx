@@ -4,6 +4,7 @@ import { useState } from "react";
 
 const eventTypes = [
   "Conferences & Conventions",
+  "MICE",
   "Annual Meets",
   "Dealer & Distributor Meets",
   "Sales Meets",

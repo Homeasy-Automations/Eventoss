@@ -68,7 +68,7 @@ export default function Navbar() {
                   <motion.div initial={{ opacity: 0, y: 6 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: 6 }} transition={{ duration: 0.24 }} className="absolute top-full left-1/2 -translate-x-1/2 pt-5">
                     <div className="bg-[#FCFCFB] text-[#0F2A3D] min-w-[640px] p-7 grid grid-cols-2 gap-x-8 gap-y-2 shadow-2xl border border-[#0F2A3D]/10">
                       <div className="col-span-2 flex justify-between items-center border-b border-[#0F2A3D]/10 pb-3 mb-1">
-                        <span className="label-sm opacity-40">7 Event Verticals</span>
+                        <span className="label-sm opacity-40">8 Event Verticals</span>
                         <Link href="/services" className="label-sm flex items-center gap-1 hover:opacity-60">View all <ArrowUpRight className="w-3 h-3" /></Link>
                       </div>
                       {services.map((s) => (
@@ -154,7 +154,7 @@ export default function Navbar() {
                         <span className="opacity-25 text-xs">{s.number}</span> {s.title}
                       </Link>
                     ))}
-                    <Link href="/services" className="text-white label-sm mt-2 inline-flex gap-1">View all 7 verticals →</Link>
+                    <Link href="/services" className="text-white label-sm mt-2 inline-flex gap-1">View all 8 verticals →</Link>
                   </div>
                 </div>
               </nav>

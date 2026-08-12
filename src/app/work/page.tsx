@@ -5,7 +5,7 @@ import { HeroImageBand } from "@/components/HeroImageBand";
 import Reveal from "@/components/Reveal";
 import WordReveal from "@/components/WordReveal";
 import ClientRosterGrid from "@/components/ClientRosterGrid";
-import { clientRoster } from "@/data/clients";
+import { brandRoster } from "@/data/clients";
 
 // Real Eventoss Entertainment YouTube video IDs (from the company's own
 // channel) — a quick highlights reel before the full case-study list.
@@ -129,7 +129,7 @@ export default function WorkPage() {
       <section className="mx-auto max-w-[1920px] px-6 lg:px-10 py-12 lg:py-16 border-t border-[#0F2A3D]/10">
         <Reveal className="flex items-end justify-between mb-8">
           <div>
-            <p className="label-sm opacity-30">Client roster — {clientRoster.length} engagements</p>
+            <p className="label-sm opacity-30">Client roster — {brandRoster.length} brands</p>
             <h2 className="text-[26px] lg:text-[32px] leading-none tracking-[-0.02em] mt-3" style={{ fontFamily: "var(--font-playfair)" }}>
               Brands we&apos;ve worked with.
             </h2>

@@ -54,7 +54,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${playfair.variable} ${cormorant.variable} ${jost.variable}`}>
+    <html lang="en" data-scroll-behavior="smooth" className={`${playfair.variable} ${cormorant.variable} ${jost.variable}`}>
       <body className="antialiased text-[#0F2A3D]">
         <ConsultationModalProvider>
           {/* Viewport-fixed, mounted once — same background on every route.
