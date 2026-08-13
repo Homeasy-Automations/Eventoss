@@ -1,9 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { projects } from "@/data/work";
-import { VideoTeaserHero } from "@/components/VideoTeaserHero";
+import PageVideoHero from "@/components/PageVideoHero";
 import Reveal from "@/components/Reveal";
-import WordReveal from "@/components/WordReveal";
 import ClientRosterGrid from "@/components/ClientRosterGrid";
 import { brandRoster } from "@/data/clients";
 
@@ -19,31 +18,25 @@ export const metadata: Metadata = {
 export default function WorkPage() {
   return (
     <div className="bg-transparent">
-      <section className="pt-[60px]">
+      <PageVideoHero
+        poster="/images/eventoss-party-crowd.jpg"
+        chipLeft="06 Projects"
+        chipRight="Patna · Delhi · Ranchi"
+        bottomLabel="EVENTOSS ENTERTAINMENT · SELECTED WORK"
+        eyebrow="WORK · SELECTED ENGAGEMENTS · 06 PROJECTS"
+        heading={
+          <span className="block text-[8vw] lg:text-[3.2vw]">
+            Work that <span className="text-[#FF8A5B]">moves rooms</span> and
+            results.
+          </span>
+        }
+      />
+
+      <section className="pt-8 lg:pt-10">
         <div className="mx-auto max-w-[1920px] px-6 lg:px-10">
-          <div className="flex justify-between items-center py-3 border-b border-[#0F2A3D]/10">
-            <span className="label-sm opacity-30">Work — Selected engagements — 06 projects</span>
-            <span className="label-sm opacity-30 hidden lg:block">Est. 2012 · Patna · Delhi · Ranchi</span>
-          </div>
-
-          <div className="mt-8">
-            <h1 className="orange-display text-[12vw] lg:text-[8vw] leading-[0.82]">
-              <WordReveal as="span" className="block" text="WORK THAT" />
-              <WordReveal as="span" className="block ml-[10%]" text="MOVES ROOMS" delay={0.08} />
-              <WordReveal as="span" className="block" text="AND RESULTS." delay={0.16} />
-            </h1>
-            <p className="label-sm opacity-30 mt-4 tracking-[0.18em]">A SELECTION OF CORPORATE EVENT ENGAGEMENTS — EDITORIAL CASE STUDIES</p>
-          </div>
-
-          <VideoTeaserHero
-            src="/images/eventoss-party-crowd.jpg"
-            alt="Eventoss show-day production"
-            chipLeft="06 Projects"
-            chipRight="Patna · Delhi · Ranchi"
-            quote="Every moment show-called, every transition timed."
-            quoteAttribution="Eventoss show-calling team"
-            heightClassName="h-[360px] lg:h-[480px]"
-          />
+          <Reveal>
+            <p className="label-sm opacity-30 tracking-[0.18em]">A SELECTION OF CORPORATE EVENT ENGAGEMENTS — EDITORIAL CASE STUDIES</p>
+          </Reveal>
         </div>
       </section>
 

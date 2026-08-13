@@ -5,7 +5,8 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { ReactNode, useRef } from "react";
 
 type VideoHeroProps = {
-  youtubeId: string;
+  /** No longer used — hero now plays the local /herovid.mp4 file. Kept optional so existing call sites don't need to change. */
+  youtubeId?: string;
   poster: string;
   eyebrow?: string;
   title?: ReactNode;
@@ -40,7 +41,6 @@ const principles = [
 ];
 
 export default function VideoHero({
-  youtubeId,
   poster,
 
   eyebrow = "EVENTOSS ENTERTAINMENT · EST. 2012 · 410+ CLIENTS",
@@ -153,42 +153,14 @@ export default function VideoHero({
           }}
           className="absolute inset-0"
         >
-          {/* Desktop YouTube */}
-
-          <div className="hidden md:block absolute inset-0 overflow-hidden">
-            <iframe
-              className="
-                absolute
-                top-1/2
-                left-1/2
-                w-[177.78vh]
-                h-[56.25vw]
-                min-w-full
-                min-h-full
-                -translate-x-1/2
-                -translate-y-1/2
-                pointer-events-none
-              "
-              src={`https://www.youtube.com/embed/${youtubeId}?autoplay=1&mute=1&loop=1&playlist=${youtubeId}&controls=0&rel=0&modestbranding=1&playsinline=1`}
-              title="Eventoss background video"
-              allow="autoplay; encrypted-media"
-              frameBorder="0"
-            />
-          </div>
-
-          {/* Mobile poster */}
-
-          <img
-            src={poster}
-            alt=""
-            className="
-              md:hidden
-              absolute
-              inset-0
-              w-full
-              h-full
-              object-cover
-            "
+          <video
+            className="absolute inset-0 w-full h-full object-cover"
+            src="/herovid.mp4"
+            poster={poster}
+            autoPlay
+            muted
+            loop
+            playsInline
           />
         </motion.div>
 

@@ -1,8 +1,7 @@
 import type { Metadata } from "next";
 import { pressMentions } from "@/data/press";
-import { VideoTeaserHero } from "@/components/VideoTeaserHero";
+import PageVideoHero from "@/components/PageVideoHero";
 import Reveal from "@/components/Reveal";
-import WordReveal from "@/components/WordReveal";
 import { ArrowUpRight } from "lucide-react";
 
 export const metadata: Metadata = {
@@ -13,32 +12,18 @@ export const metadata: Metadata = {
 export default function PressPage() {
   return (
     <div className="bg-transparent">
-      <section className="pt-[60px]">
-        <div className="mx-auto max-w-[1920px] px-6 lg:px-10">
-          <div className="flex justify-between items-center py-3 border-b border-[#0F2A3D]/10">
-            <span className="label-sm opacity-30">Press Mentions — {pressMentions.length} features</span>
-            <span className="label-sm opacity-30 hidden lg:block">Est. 2012 · Patna · Delhi · Ranchi</span>
-          </div>
-
-          <div className="mt-8">
-            <h1 className="orange-display text-[12vw] lg:text-[8vw] leading-[0.82]">
-              <WordReveal as="span" className="block" text="EVENTOSS" />
-              <WordReveal as="span" className="block ml-[10%]" text="IN NEWS." delay={0.08} />
-            </h1>
-            <p className="label-sm opacity-30 mt-4 tracking-[0.18em]">CHECK OUT OUR RECENT COVERAGE IN THE ESTEEMED PUBLICATIONS</p>
-          </div>
-
-          <VideoTeaserHero
-            src="/images/eventoss-bihargaurav.jpg"
-            alt="Eventoss press coverage"
-            chipLeft={`${pressMentions.length} Features`}
-            chipRight="Patna · Delhi · Ranchi"
-            quote="From national business dailies to industry trade press — the coverage of a decade-plus legacy."
-            quoteAttribution="Eventoss Entertainment"
-            heightClassName="h-[360px] lg:h-[480px]"
-          />
-        </div>
-      </section>
+      <PageVideoHero
+        poster="/images/eventoss-bihargaurav.jpg"
+        chipLeft={`${pressMentions.length} Features`}
+        chipRight="Patna · Delhi · Ranchi"
+        bottomLabel="EVENTOSS ENTERTAINMENT · PRESS MENTIONS"
+        eyebrow={`PRESS MENTIONS · ${pressMentions.length} FEATURES`}
+        heading={
+          <span className="block text-[9vw] lg:text-[3.6vw]">
+            Eventoss in the <span className="text-[#FF8A5B]">news.</span>
+          </span>
+        }
+      />
 
       <section className="mx-auto max-w-[1920px] px-6 lg:px-10 py-12 lg:py-16">
         <div className="hairline" />

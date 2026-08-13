@@ -1,9 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { pillars } from "@/data/services";
-import { VideoTeaserHero } from "@/components/VideoTeaserHero";
+import PageVideoHero from "@/components/PageVideoHero";
 import Reveal from "@/components/Reveal";
-import WordReveal from "@/components/WordReveal";
 
 export const metadata: Metadata = {
   title: "Services — 8 Event Verticals | Eventoss",
@@ -13,44 +12,33 @@ export const metadata: Metadata = {
 export default function ServicesPage() {
   return (
     <div className="bg-transparent">
-      {/* Hero editorial like reference */}
-      <section className="pt-[60px]">
-        <div className="mx-auto max-w-[1920px] px-6 lg:px-10">
-          <div className="flex justify-between items-center py-3 border-b border-[#0F2A3D]/10">
-            <span className="label-sm opacity-30">Services — 8 Verticals</span>
-            <span className="label-sm opacity-30">Research → Concept → Develop → Test</span>
-          </div>
+      <PageVideoHero
+        poster="/images/eventoss-hero-topgear.jpg"
+        chipLeft="Full Catalogue"
+        chipRight="8 Verticals · Pan-India"
+        bottomLabel="EVENTOSS ENTERTAINMENT · SERVICES"
+        eyebrow="SERVICES · 8 VERTICALS · RESEARCH → CONCEPT → DEVELOP → TEST"
+        heading={
+          <span className="block text-[9vw] lg:text-[3.6vw]">
+            Every format. <span className="text-[#FF8A5B]">One standard.</span>
+          </span>
+        }
+      />
 
-          <div className="mt-8 grid lg:grid-cols-12 gap-8">
-            <div className="lg:col-span-8">
-              <h1 className="orange-display text-[12vw] lg:text-[8vw] leading-[0.82]">
-                <WordReveal as="span" className="block" text="EVERY" />
-                <WordReveal as="span" className="block ml-[12%]" text="FORMAT." delay={0.08} />
-                <WordReveal as="span" className="block" text="ONE STANDARD." delay={0.16} />
-              </h1>
-              <p className="label-sm opacity-30 mt-4 tracking-[0.2em]">CORPORATE · BRAND · CONFERENCES · MICE · EXHIBITIONS · ENTERTAINMENT · GOVERNMENT · SPORTS</p>
-            </div>
-            <div className="lg:col-span-4 flex flex-col justify-end">
+      <section className="pt-10 lg:pt-14">
+        <div className="mx-auto max-w-[1920px] px-6 lg:px-10">
+          <Reveal className="grid lg:grid-cols-12 gap-8 items-end border-b border-[#0F2A3D]/10 pb-8">
+            <p className="lg:col-span-8 label-sm opacity-30 tracking-[0.2em]">CORPORATE · BRAND · CONFERENCES · MICE · EXHIBITIONS · ENTERTAINMENT · GOVERNMENT · SPORTS</p>
+            <div className="lg:col-span-4">
               <p className="text-[14px] leading-6 opacity-60">Eight specialised event verticals — each planned with research, creative direction, and show-day precision.</p>
-              <div className="hairline mt-6" />
               <p className="label-sm opacity-30 mt-3">Est. 2012 · Pan-India · Founder-led</p>
             </div>
-          </div>
-
-          <VideoTeaserHero
-            src="/images/eventoss-hero-topgear.jpg"
-            alt="Eventoss corporate event production"
-            chipLeft="Full Catalogue"
-            chipRight="8 Verticals · Pan-India"
-            quote="No templates, no generic party planning."
-            quoteAttribution="Eventoss Corporate Events"
-            heightClassName="h-[320px] lg:h-[420px]"
-          />
+          </Reveal>
         </div>
       </section>
 
       {/* Editorial list — magazine spreads */}
-      <section className="mx-auto max-w-[1920px] px-6 lg:px-10 py-12 lg:py-16">
+      <section className="mx-auto max-w-[1920px] px-6 lg:px-10 pb-12 lg:pb-16 pt-8 lg:pt-10">
         <div className="space-y-10 lg:space-y-14">
           {pillars.map((s, idx) => {
             const reversed = idx % 2 === 1;

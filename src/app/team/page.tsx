@@ -2,9 +2,8 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { team } from "@/data/team";
 import { ArrowUpRight } from "lucide-react";
-import { VideoTeaserHero } from "@/components/VideoTeaserHero";
+import PageVideoHero from "@/components/PageVideoHero";
 import Reveal from "@/components/Reveal";
-import WordReveal from "@/components/WordReveal";
 
 export const metadata: Metadata = {
   title: "Team — People Behind Every Standing Ovation | Eventoss",
@@ -14,31 +13,29 @@ export const metadata: Metadata = {
 export default function TeamPage() {
   return (
     <div className="bg-transparent">
-      <section className="pt-[60px]">
+      <PageVideoHero
+        poster="/images/gallery/team-outdoor.jpeg"
+        chipLeft="Leadership · Members"
+        chipRight="Patna HQ"
+        bottomLabel="EVENTOSS ENTERTAINMENT · LEADERSHIP"
+        eyebrow="LEADERSHIP · FOUNDER-LED · DELIVERY-OBSESSED"
+        heading={
+          <span className="block text-[8vw] lg:text-[3.2vw]">
+            The people behind every{" "}
+            <span className="text-[#FF8A5B]">standing ovation.</span>
+          </span>
+        }
+      />
+
+      <section className="pt-8 lg:pt-10">
         <div className="mx-auto max-w-[1920px] px-6 lg:px-10">
-          <div className="flex justify-between items-center py-3 border-b border-[#0F2A3D]/10">
-            <span className="label-sm opacity-30">Leadership — 01</span>
-            <span className="label-sm opacity-30">Founder-led · Delivery-obsessed</span>
-          </div>
-          <h1 className="orange-display text-[11vw] lg:text-[7.4vw] leading-[0.82] mt-6">
-            <WordReveal as="span" className="block" text="THE PEOPLE" />
-            <WordReveal as="span" className="block ml-[8%]" text="BEHIND EVERY" delay={0.08} />
-            <WordReveal as="span" className="block" text="STANDING OVATION." delay={0.16} />
-          </h1>
-          <p className="text-[14px] leading-6 opacity-60 mt-4 max-w-[560px]">Founder-led. Delivery-obsessed. Meet the leadership team steering Eventoss Corporate Events.</p>
-          <VideoTeaserHero
-            src="/images/gallery/team-outdoor.jpeg"
-            alt="Eventoss leadership team"
-            chipLeft="Leadership · Members"
-            chipRight="Patna HQ"
-            quote="Strategy, client partnerships, creative direction — founder-led on every engagement."
-            quoteAttribution="Patna HQ"
-            heightClassName="h-[300px] lg:h-[400px]"
-          />
+          <Reveal>
+            <p className="text-[14px] leading-6 opacity-60 max-w-[560px]">Founder-led. Delivery-obsessed. Meet the leadership team steering Eventoss Corporate Events.</p>
+          </Reveal>
         </div>
       </section>
 
-      <section className="mx-auto max-w-[1920px] px-6 lg:px-10 py-12 lg:py-16">
+      <section className="mx-auto max-w-[1920px] px-6 lg:px-10 py-10 lg:py-16">
         {/* Featured founder full bleed */}
         <Reveal className="grid lg:grid-cols-12 gap-6">
           <div className="lg:col-span-8 group border border-[#0F2A3D]/10 overflow-hidden bg-[#FCFCFB] grid lg:grid-cols-2">
@@ -72,7 +69,7 @@ export default function TeamPage() {
             <Reveal key={member.slug} delay={idx * 0.08} direction={idx === 0 ? "right" : "left"} className={idx === 0 ? "lg:col-span-6" : "lg:col-span-6 lg:mt-12"}>
               <div className="group border border-[#0F2A3D]/10 overflow-hidden bg-white">
                 <div className="relative overflow-hidden">
-                  <img src={member.image} alt={member.name} className="w-full h-[480px] object-cover grayscale group-hover:grayscale-0 transition-all duration-700" />
+                  <img src={member.image} alt={member.name} className="w-full h-[480px] object-top grayscale group-hover:grayscale-0 transition-all duration-700" />
                   <span className="absolute top-4 left-4 bg-white border border-[#0F2A3D]/10 px-3 py-1 label-sm">0{idx + 2}</span>
                   <div className="absolute bottom-0 inset-x-0 bg-gradient-to-t from-[#0F2A3D]/70 to-transparent p-6">
                     <p className="text-white label-sm opacity-70">{member.title}</p>

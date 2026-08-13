@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { VideoTeaserHero } from "@/components/VideoTeaserHero";
+import PageVideoHero from "@/components/PageVideoHero";
 import Reveal from "@/components/Reveal";
 import WordReveal from "@/components/WordReveal";
 
@@ -12,35 +12,29 @@ export const metadata: Metadata = {
 export default function AboutPage() {
   return (
     <div className="bg-transparent">
-      <section className="pt-[60px]">
+      <PageVideoHero
+        poster="/images/eventoss-conference-hall.jpg"
+        chipLeft="01 — Corporate Events Division"
+        chipRight="Patna · Delhi · Ranchi"
+        bottomLabel="EVENTOSS ENTERTAINMENT · ABOUT THE DIVISION"
+        eyebrow="ABOUT THE DIVISION · EST. 2012 · 12+ YEARS"
+        heading={
+          <span className="block text-[9vw] lg:text-[3.6vw]">
+            Corporate events is our{" "}
+            <span className="text-[#4ADE9E]">craft.</span>
+          </span>
+        }
+      />
+
+      <section className="pt-10 lg:pt-14">
         <div className="mx-auto max-w-[1920px] px-6 lg:px-10">
-          <div className="flex justify-between items-center py-3 border-b border-[#0F2A3D]/10">
-            <span className="label-sm opacity-30">About the division — 01</span>
-            <span className="label-sm opacity-30">Est. 2012 · Patna · 12+ years</span>
-          </div>
-          <div className="mt-8">
-            <h1 className="green-display text-[11vw] lg:text-[7.6vw] leading-[0.82]">
-              <WordReveal as="span" className="block" text="CORPORATE" />
-              <WordReveal as="span" className="block ml-[10%]" text="EVENTS IS" delay={0.08} />
-              <WordReveal as="span" className="block" text="OUR CRAFT." delay={0.16} />
-            </h1>
-            <p className="text-[22px] lg:text-[28px] leading-none tracking-[-0.03em] mt-3 ml-[2%]" style={{ fontFamily: "var(--font-playfair)" }}><span className="italic font-light">Precision</span> <span className="font-black">is our standard.</span></p>
-          </div>
-          <Reveal className="mt-6 grid lg:grid-cols-12 gap-6">
+          <Reveal className="grid lg:grid-cols-12 gap-6">
             <p className="lg:col-span-6 text-[14px] leading-6 opacity-60 max-w-[560px]">Eventoss Entertainment Pvt Ltd brings over a decade of experience to conferences, meets, launches, and culture celebrations — delivered with the energy corporate brands deserve.</p>
             <div className="lg:col-span-6 flex gap-3 lg:justify-end items-start">
               <Link href="/contact" className="bg-[#0F2A3D] text-white px-7 h-10 inline-flex items-center label-sm">Start a conversation</Link>
               <Link href="/services" className="border border-[#0F2A3D]/15 px-7 h-10 inline-flex items-center label-sm hover:bg-[#0F2A3D] hover:text-white">Explore services</Link>
             </div>
           </Reveal>
-          <VideoTeaserHero
-            src="/images/eventoss-conference-hall.jpg"
-            alt="Eventoss team at work"
-            chipLeft="01 — Corporate Events Division"
-            chipRight="Patna · Delhi · Ranchi"
-            quote="Precision is not an accident. It's a process."
-            quoteAttribution="Corporate Events Division"
-          />
         </div>
       </section>
 
