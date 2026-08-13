@@ -12,8 +12,8 @@ export default function Footer() {
         </div>
       </div>
 
-      <div className="mx-auto max-w-[1920px] px-6 lg:px-10 py-12 lg:py-14">
-        <div className="grid grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-8 justify-center lg:max-w-[1400px] lg:mx-auto">
+      <div className="mx-auto max-w-[1920px] px-6 lg:px-10 py-12 lg:py-14 ">
+        <div className="grid grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-8 justify-center lg:max-w-[1100px] lg:mx-auto">
           <div className="col-span-2 lg:col-span-3">
             <p className="label-sm text-white/35 mb-6">Connect with us</p>
             <div className="space-y-2.5 text-[13px] leading-6">
@@ -79,11 +79,13 @@ export default function Footer() {
               <div className="flex flex-wrap gap-x-3 gap-y-1 pt-1 label-sm text-white/45 text-[10px]">
                 <a href="tel:+917061528401" className="hover:text-white transition-colors duration-300">+91 70615 28401</a>
                 <a href="tel:+917061528402" className="hover:text-white transition-colors duration-300">+91 70615 28402</a>
+              </div>
+              <div className="flex flex-wrap gap-x-3 gap-y-1 pt-1 label-sm text-white/45 text-[10px]">
                 <a href="tel:+916122230055" className="hover:text-white transition-colors duration-300">0612 2230055</a>
               </div>
             </div>
             <div className="mt-7 flex gap-2">
-              <Link href="/contact" className="inline-flex items-center justify-center px-5 h-9 bg-white text-[#0F2A3D] label-sm hover:bg-[#FF3D00] hover:text-white transition-colors duration-300 text-[10px]">Start a conversation</Link>
+              <Link href="/contact" className="inline-flex items-center justify-center px-2 h-9 bg-white text-[#0F2A3D] label-sm hover:bg-[#FF3D00] hover:text-white transition-colors duration-300 text-[10px]">Start a conversation</Link>
               <a href="https://wa.me/917061528401" className="inline-flex items-center justify-center px-5 h-9 border border-white/20 text-white label-sm hover:bg-white hover:text-[#0F2A3D] transition-colors duration-300 text-[10px]">WhatsApp</a>
             </div>
           </div>
