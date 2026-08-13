@@ -13,6 +13,7 @@ export default function AboutPage() {
   return (
     <div className="bg-transparent">
       <PageVideoHero
+        videoSrc="husk/.mp4"
         poster="/images/eventoss-conference-hall.jpg"
         chipLeft="01 — Corporate Events Division"
         chipRight="Patna · Delhi · Ranchi"

@@ -23,7 +23,7 @@ type PageVideoHeroProps = {
  * the page's own content continues in the section right below.
  */
 export default function PageVideoHero({
-  videoSrc = "/herovid.mp4",
+  videoSrc,
   poster,
   chipLeft,
   chipRight,

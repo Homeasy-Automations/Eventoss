@@ -6,6 +6,7 @@ import { ReactNode, useRef } from "react";
 
 type VideoHeroProps = {
   /** No longer used — hero now plays the local /herovid.mp4 file. Kept optional so existing call sites don't need to change. */
+  videoSrc?: string;
   youtubeId?: string;
   poster: string;
   eyebrow?: string;
