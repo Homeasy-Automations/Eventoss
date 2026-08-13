@@ -26,6 +26,6 @@ export const team: TeamMember[] = [
     name: "Aliwaris Khan",
     title: "Director, Events & Entertainment",
     bio: "Director of Events & Entertainment, responsible for production design, entertainment curation, and show-calling excellence across conferences, galas, launches, and large-format corporate gatherings.",
-    image: "/ALIWARIS.PNG",
+    image: "/ALIWARIS.png",
   },
 ];
