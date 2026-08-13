@@ -99,7 +99,8 @@ export default function VideoHero({
   const heroRef = useRef<HTMLElement>(null);
 
   /*
-   * Scroll progress is ONLY used for video movement.
+   * Scroll progress drives the video's slow zoom AND the
+   * text-over-video reveal below (opacity/rise + scroll-hint fade).
    */
   const { scrollYProgress } = useScroll({
     target: heroRef,
@@ -110,6 +111,26 @@ export default function VideoHero({
     scrollYProgress,
     [0, 0.5],
     [1, 1.07]
+  );
+
+  /* FRAME 01 TEXT REVEAL — hidden at rest, fades/rises in on scroll */
+
+  const overlayOpacity = useTransform(
+    scrollYProgress,
+    [0, 0.16],
+    [0, 1]
+  );
+
+  const overlayY = useTransform(
+    scrollYProgress,
+    [0, 0.16],
+    [36, 0]
+  );
+
+  const scrollHintOpacity = useTransform(
+    scrollYProgress,
+    [0, 0.08],
+    [1, 0]
   );
 
   return (
@@ -175,6 +196,53 @@ export default function VideoHero({
 
         <div className="absolute inset-0 bg-black/10 pointer-events-none" />
 
+        {/* BOTTOM GRADIENT — keeps the reveal text readable over the footage */}
+
+        <div className="absolute inset-x-0 bottom-0 h-[55%] bg-gradient-to-t from-black/55 via-black/15 to-transparent pointer-events-none" />
+
+        {/* SCROLL-REVEAL TEXT — hidden at rest, fades + rises in as you scroll */}
+
+        <motion.div
+          style={{
+            opacity: overlayOpacity,
+            y: overlayY,
+          }}
+          className="
+            absolute
+            inset-x-0
+            bottom-[14%]
+            lg:bottom-[16%]
+            z-10
+            px-6
+            lg:px-10
+            text-center
+            pointer-events-none
+          "
+        >
+          <span className="label-sm text-white/70">
+            {eyebrow}
+          </span>
+
+          <h2
+            className="
+              mt-4
+              text-[9vw]
+              lg:text-[3.6vw]
+              leading-[1.05]
+              tracking-[-0.02em]
+              text-white
+              [text-shadow:0_2px_24px_rgba(0,0,0,0.35)]
+            "
+            style={{
+              fontFamily: "var(--font-playfair)",
+            }}
+          >
+            We{" "}
+            <span className="text-[#FF8A5B]">engineer</span> moments
+            that <span className="text-[#FF8A5B]">move</span> people.
+          </h2>
+        </motion.div>
+
         {/* TOP LEFT CHIP */}
 
         <div className="absolute top-6 lg:top-8 left-6 lg:left-10 z-20">
@@ -221,9 +289,12 @@ export default function VideoHero({
           </span>
         </div>
 
-        {/* SCROLL INDICATOR */}
+        {/* SCROLL INDICATOR — fades out as the reveal text fades in */}
 
-        <div
+        <motion.div
+          style={{
+            opacity: scrollHintOpacity,
+          }}
           className="
             absolute
             bottom-8
@@ -251,7 +322,7 @@ export default function VideoHero({
             }}
             className="w-px h-8 bg-white/50"
           />
-        </div>
+        </motion.div>
       </div>
 
       {/* ============================================================
