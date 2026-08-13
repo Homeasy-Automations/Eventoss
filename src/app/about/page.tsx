@@ -123,7 +123,7 @@ export default function AboutPage() {
             <div className="p-6"><p className="label-sm opacity-20">02</p><h4 className="text-[18px] mt-2" style={{ fontFamily: "var(--font-playfair)" }}>Innovative</h4><p className="text-[13.5px] leading-6 opacity-60 mt-3">Fresh formats, smart tech, and modern production that keep corporate audiences genuinely engaged.</p></div>
           </Reveal>
           <Reveal delay={0.05} className="lg:col-span-5 border border-[#0F2A3D]/10 overflow-hidden bg-white">
-            <img src="/images/gallery/gala-portrait.webp" alt="Creative" className="w-full h-[240px] object-cover" />
+            <img src="/images/gallery/gala.png" alt="Creative" className="w-full h-[240px] object-cover" />
             <div className="p-6"><p className="label-sm opacity-20">03</p><h4 className="text-[18px] mt-2" style={{ fontFamily: "var(--font-playfair)" }}>Creative</h4><p className="text-[13.5px] leading-6 opacity-60 mt-3">Themes, stages, and moments designed to feel distinctive — never template-driven.</p></div>
           </Reveal>
           <Reveal delay={0.1} className="lg:col-span-7 border border-[#0F2A3D]/10 overflow-hidden bg-[#FCFCFB] grid lg:grid-cols-2">

@@ -133,7 +133,7 @@ export const pillars: Pillar[] = [
       "Fan Engagement", "Sports Activations", "Award Ceremonies", "Opening & Closing Ceremonies",
       "Brand Partnerships", "Sports Hospitality",
     ],
-    image: "/images/gallery/gala-portrait.webp",
+    image: "/images/gallery/gala.png",
     heroImage: "/images/eventoss-team-crowd.jpg",
     secondaryImage: "/images/blog/18-wedding-vogues.jpg",
   },
