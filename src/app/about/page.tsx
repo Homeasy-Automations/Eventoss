@@ -13,16 +13,21 @@ export default function AboutPage() {
   return (
     <div className="bg-transparent">
       <PageVideoHero
-        videoSrc="husk/.mp4"
+        videoSrc="/husk.mp4"
         poster="/images/eventoss-conference-hall.jpg"
         chipLeft="01 — Corporate Events Division"
         chipRight="Patna · Delhi · Ranchi"
         bottomLabel="EVENTOSS ENTERTAINMENT · ABOUT THE DIVISION"
         eyebrow="ABOUT THE DIVISION · EST. 2012 · 12+ YEARS"
         heading={
-          <span className="block text-[9vw] lg:text-[3.6vw]">
+          <span className="block text-[12vw] lg:text-[5vw]">
             Corporate events is our{" "}
-            <span className="text-[#4ADE9E]">craft.</span>
+            <span
+              className="text-[#4ADE9E] italic font-normal"
+              style={{ fontFamily: "var(--font-cormorant)" }}
+            >
+              craft.
+            </span>
           </span>
         }
       />

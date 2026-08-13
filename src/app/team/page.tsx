@@ -14,15 +14,21 @@ export default function TeamPage() {
   return (
     <div className="bg-transparent">
       <PageVideoHero
+        videoSrc="/herovid.mp4"
         poster="/images/gallery/team-outdoor.jpeg"
         chipLeft="Leadership · Members"
         chipRight="Patna HQ"
         bottomLabel="EVENTOSS ENTERTAINMENT · LEADERSHIP"
         eyebrow="LEADERSHIP · FOUNDER-LED · DELIVERY-OBSESSED"
         heading={
-          <span className="block text-[8vw] lg:text-[3.2vw]">
+          <span className="block text-[11vw] lg:text-[4.6vw]">
             The people behind every{" "}
-            <span className="text-[#FF8A5B]">standing ovation.</span>
+            <span className="text-[#FF8A5B]">
+              standing{" "}
+              <span className="italic font-normal" style={{ fontFamily: "var(--font-cormorant)" }}>
+                ovation.
+              </span>
+            </span>
           </span>
         }
       />

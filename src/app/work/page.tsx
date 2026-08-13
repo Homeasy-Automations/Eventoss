@@ -19,15 +19,22 @@ export default function WorkPage() {
   return (
     <div className="bg-transparent">
       <PageVideoHero
+        videoSrc="/newyear.mp4"
         poster="/images/eventoss-party-crowd.jpg"
         chipLeft="06 Projects"
         chipRight="Patna · Delhi · Ranchi"
         bottomLabel="EVENTOSS ENTERTAINMENT · SELECTED WORK"
         eyebrow="WORK · SELECTED ENGAGEMENTS · 06 PROJECTS"
         heading={
-          <span className="block text-[8vw] lg:text-[3.2vw]">
-            Work that <span className="text-[#FF8A5B]">moves rooms</span> and
-            results.
+          <span className="block text-[11vw] lg:text-[4.6vw]">
+            Work that{" "}
+            <span className="text-[#FF8A5B]">
+              moves{" "}
+              <span className="italic font-normal" style={{ fontFamily: "var(--font-cormorant)" }}>
+                rooms
+              </span>
+            </span>{" "}
+            and results.
           </span>
         }
       />

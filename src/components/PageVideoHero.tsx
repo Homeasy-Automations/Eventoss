@@ -55,15 +55,26 @@ export default function PageVideoHero({
         style={{ scale: videoScale }}
         className="absolute inset-0"
       >
-        <video
-          className="absolute inset-0 w-full h-full object-cover"
-          src={videoSrc}
-          poster={poster}
-          autoPlay
-          muted
-          loop
-          playsInline
-        />
+        {videoSrc ? (
+          <video
+            className="absolute inset-0 w-full h-full object-cover"
+            src={videoSrc}
+            poster={poster}
+            autoPlay
+            muted
+            loop
+            playsInline
+            preload="auto"
+          />
+        ) : (
+          // Defensive fallback: if a page ever forgets to pass videoSrc,
+          // show the poster image instead of a silently blank/frozen hero.
+          <img
+            src={poster}
+            alt=""
+            className="absolute inset-0 w-full h-full object-cover"
+          />
+        )}
       </motion.div>
 
       {/* VIDEO OVERLAY */}
@@ -90,14 +101,15 @@ export default function PageVideoHero({
           pointer-events-none
         "
       >
-        <span className="label-sm text-white/70">{eyebrow}</span>
+        <span className="label-sm text-white/80 tracking-[0.32em]">{eyebrow}</span>
         <div
           className="
-            mt-4
-            leading-[1.05]
-            tracking-[-0.02em]
+            mt-5
+            font-semibold
+            leading-[0.98]
+            tracking-[-0.03em]
             text-white
-            [text-shadow:0_2px_24px_rgba(0,0,0,0.35)]
+            [text-shadow:0_4px_40px_rgba(0,0,0,0.45)]
           "
           style={{ fontFamily: "var(--font-playfair)" }}
         >

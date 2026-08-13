@@ -13,14 +13,21 @@ export default function ServicesPage() {
   return (
     <div className="bg-transparent">
       <PageVideoHero
+        videoSrc="/webtech.mp4"
         poster="/images/eventoss-hero-topgear.jpg"
         chipLeft="Full Catalogue"
         chipRight="8 Verticals · Pan-India"
         bottomLabel="EVENTOSS ENTERTAINMENT · SERVICES"
         eyebrow="SERVICES · 8 VERTICALS · RESEARCH → CONCEPT → DEVELOP → TEST"
         heading={
-          <span className="block text-[9vw] lg:text-[3.6vw]">
-            Every format. <span className="text-[#FF8A5B]">One standard.</span>
+          <span className="block text-[12vw] lg:text-[5vw]">
+            Every format.{" "}
+            <span className="text-[#FF8A5B]">
+              One{" "}
+              <span className="italic font-normal" style={{ fontFamily: "var(--font-cormorant)" }}>
+                standard.
+              </span>
+            </span>
           </span>
         }
       />

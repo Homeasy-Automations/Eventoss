@@ -192,19 +192,20 @@ export default function VideoHero({
             pointer-events-none
           "
         >
-          <span className="label-sm text-white/70">
+          <span className="label-sm text-white/80 tracking-[0.32em]">
             {eyebrow}
           </span>
 
           <h2
             className="
-              mt-4
-              text-[9vw]
-              lg:text-[3.6vw]
-              leading-[1.05]
-              tracking-[-0.02em]
+              mt-5
+              text-[13vw]
+              lg:text-[5.2vw]
+              font-semibold
+              leading-[0.98]
+              tracking-[-0.03em]
               text-white
-              [text-shadow:0_2px_24px_rgba(0,0,0,0.35)]
+              [text-shadow:0_4px_40px_rgba(0,0,0,0.45)]
             "
             style={{
               fontFamily: "var(--font-playfair)",
@@ -212,7 +213,14 @@ export default function VideoHero({
           >
             We{" "}
             <span className="text-[#FF8A5B]">engineer</span> moments
-            that <span className="text-[#FF8A5B]">move</span> people.
+            that{" "}
+            <span
+              className="italic font-normal text-[#FF8A5B]"
+              style={{ fontFamily: "var(--font-cormorant)" }}
+            >
+              move
+            </span>{" "}
+            people.
           </h2>
         </motion.div>
 

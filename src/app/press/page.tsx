@@ -13,14 +13,21 @@ export default function PressPage() {
   return (
     <div className="bg-transparent">
       <PageVideoHero
+        videoSrc="/husk.mp4"
         poster="/images/eventoss-bihargaurav.jpg"
         chipLeft={`${pressMentions.length} Features`}
         chipRight="Patna · Delhi · Ranchi"
         bottomLabel="EVENTOSS ENTERTAINMENT · PRESS MENTIONS"
         eyebrow={`PRESS MENTIONS · ${pressMentions.length} FEATURES`}
         heading={
-          <span className="block text-[9vw] lg:text-[3.6vw]">
-            Eventoss in the <span className="text-[#FF8A5B]">news.</span>
+          <span className="block text-[12vw] lg:text-[5vw]">
+            Eventoss in the{" "}
+            <span
+              className="text-[#FF8A5B] italic font-normal"
+              style={{ fontFamily: "var(--font-cormorant)" }}
+            >
+              news.
+            </span>
           </span>
         }
       />
