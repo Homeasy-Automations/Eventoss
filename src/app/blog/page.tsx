@@ -29,7 +29,7 @@ export default function BlogPage() {
           </div>
 
           <HeroImageBand
-            src="/images/gallery/launch-collage.webp"
+            src="/images/gallery/blog.png"
             alt="Eventoss blog"
             chipLeft={`${blogPosts.length} Articles`}
             chipRight="Patna · Delhi · Ranchi"
