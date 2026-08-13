@@ -1,30 +1,28 @@
-import { NextResponse } from "next/server";
+import { Router } from "express";
 import { Resend } from "resend";
-import { connectDB } from "@/lib/mongodb";
-import Enquiry from "@/models/Enquiry";
-import { contactSchema } from "@/lib/validation";
-import { generateReferenceId } from "@/lib/reference";
-import { buildOwnerEmail, buildSenderReceiptEmail } from "@/lib/email-templates";
+import { connectDB } from "../lib/mongodb";
+import Enquiry from "../models/Enquiry";
+import { contactSchema } from "../lib/validation";
+import { generateReferenceId } from "../lib/reference";
+import { buildOwnerEmail, buildSenderReceiptEmail } from "../lib/email-templates";
+
+const router = Router();
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 const FROM_EMAIL = process.env.RESEND_FROM_EMAIL || "Eventoss <onboarding@resend.dev>";
 const OWNER_EMAIL = process.env.OWNER_EMAIL || "info@eventoss.in";
 
-export async function POST(req: Request) {
-  let body: unknown;
-  try {
-    body = await req.json();
-  } catch {
-    return NextResponse.json({ ok: false, message: "Invalid request body" }, { status: 400 });
+router.post("/", async (req, res) => {
+  const parsed = contactSchema.safeParse(req.body);
+  if (!parsed.success) {
+    res.status(400).json({
+      ok: false,
+      message: "Please check the highlighted fields",
+      errors: parsed.error.flatten().fieldErrors,
+    });
+    return;
   }
 
-  const parsed = contactSchema.safeParse(body);
-  if (!parsed.success) {
-    return NextResponse.json(
-      { ok: false, message: "Please check the highlighted fields", errors: parsed.error.flatten().fieldErrors },
-      { status: 400 }
-    );
-  }
   const values = parsed.data;
   const referenceId = generateReferenceId("EVT");
   const submittedAt = new Date();
@@ -50,7 +48,8 @@ export async function POST(req: Request) {
     });
   } catch (err) {
     console.error("Contact route — MongoDB save failed:", err);
-    return NextResponse.json({ ok: false, message: "Could not save your enquiry, please try again" }, { status: 500 });
+    res.status(500).json({ ok: false, message: "Could not save your enquiry, please try again" });
+    return;
   }
 
   const emailFields = {
@@ -102,13 +101,13 @@ export async function POST(req: Request) {
     console.error("Contact route — sender email send failed:", err);
   }
 
-  // Best-effort — an enquiry that saved fine but couldn't update its email
-  // status shouldn't fail the whole request; the person already has their receipt.
   try {
     await Enquiry.updateOne({ referenceId }, { $set: { emailStatus } });
   } catch (err) {
     console.error("Contact route — emailStatus update failed:", err);
   }
 
-  return NextResponse.json({ ok: true, message: "Enquiry received", referenceId });
-}
+  res.json({ ok: true, message: "Enquiry received", referenceId });
+});
+
+export default router;

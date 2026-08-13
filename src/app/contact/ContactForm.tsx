@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { apiPath } from "@/lib/api";
 
 const eventTypes = [
   "Conferences & Conventions",
@@ -51,7 +52,7 @@ export default function ContactForm() {
     setStatus("loading");
 
     try {
-      const res = await fetch("/api/contact", {
+      const res = await fetch(apiPath("/api/contact"), {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(values),

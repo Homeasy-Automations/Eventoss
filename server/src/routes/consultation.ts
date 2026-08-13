@@ -1,30 +1,28 @@
-import { NextResponse } from "next/server";
+import { Router } from "express";
 import { Resend } from "resend";
-import { connectDB } from "@/lib/mongodb";
-import Enquiry from "@/models/Enquiry";
-import { consultationSchema } from "@/lib/validation";
-import { generateReferenceId } from "@/lib/reference";
-import { buildOwnerEmail, buildSenderReceiptEmail } from "@/lib/email-templates";
+import { connectDB } from "../lib/mongodb";
+import Enquiry from "../models/Enquiry";
+import { consultationSchema } from "../lib/validation";
+import { generateReferenceId } from "../lib/reference";
+import { buildOwnerEmail, buildSenderReceiptEmail } from "../lib/email-templates";
+
+const router = Router();
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 const FROM_EMAIL = process.env.RESEND_FROM_EMAIL || "Eventoss <onboarding@resend.dev>";
 const OWNER_EMAIL = process.env.OWNER_EMAIL || "info@eventoss.in";
 
-export async function POST(req: Request) {
-  let body: unknown;
-  try {
-    body = await req.json();
-  } catch {
-    return NextResponse.json({ ok: false, message: "Invalid request body" }, { status: 400 });
+router.post("/", async (req, res) => {
+  const parsed = consultationSchema.safeParse(req.body);
+  if (!parsed.success) {
+    res.status(400).json({
+      ok: false,
+      message: "Please check the highlighted fields",
+      errors: parsed.error.flatten().fieldErrors,
+    });
+    return;
   }
 
-  const parsed = consultationSchema.safeParse(body);
-  if (!parsed.success) {
-    return NextResponse.json(
-      { ok: false, message: "Please check the highlighted fields", errors: parsed.error.flatten().fieldErrors },
-      { status: 400 }
-    );
-  }
   const values = parsed.data;
   const referenceId = generateReferenceId("CON");
   const submittedAt = new Date();
@@ -49,7 +47,8 @@ export async function POST(req: Request) {
     });
   } catch (err) {
     console.error("Consultation route — MongoDB save failed:", err);
-    return NextResponse.json({ ok: false, message: "Could not save your request, please try again" }, { status: 500 });
+    res.status(500).json({ ok: false, message: "Could not save your request, please try again" });
+    return;
   }
 
   const emailFields = {
@@ -69,8 +68,6 @@ export async function POST(req: Request) {
     submittedAt,
   };
 
-  // Resend's `.send()` resolves (doesn't throw) on API errors, so each
-  // call's `{ data, error }` shape must be checked explicitly.
   const emailStatus = { ownerSent: false, senderSent: false };
 
   try {
@@ -106,5 +103,7 @@ export async function POST(req: Request) {
     console.error("Consultation route — emailStatus update failed:", err);
   }
 
-  return NextResponse.json({ ok: true, message: "Consultation request received", referenceId });
-}
+  res.json({ ok: true, message: "Consultation request received", referenceId });
+});
+
+export default router;

@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { X, ArrowUpRight } from "lucide-react";
 import { useConsultationModal } from "./ConsultationModalProvider";
+import { apiPath } from "@/lib/api";
 
 const eventTypes = [
   "Conferences & Conventions",
@@ -92,7 +93,7 @@ export default function ConsultationModal() {
     setStatus("loading");
 
     try {
-      const res = await fetch("/api/consultation", {
+      const res = await fetch(apiPath("/api/consultation"), {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ ...values, source }),
