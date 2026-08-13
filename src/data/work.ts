@@ -150,7 +150,7 @@ export const projects: Project[] = [
     gallery: [
       "/images/gallery/team-outdoor.jpeg",
       "/images/blog/05-social-media-strategies.jpeg",
-      "/images/gallery/press-group.webp",
+      "/images/gallery/press-group.png",
     ],
     story: [
       "The National Sales Kickoff for 300 automotive sales professionals needed pace, clarity, and motivation — not just a stage and a speech.",

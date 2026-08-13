@@ -128,7 +128,7 @@ export default function AboutPage() {
           </Reveal>
           <Reveal delay={0.1} className="lg:col-span-7 border border-[#0F2A3D]/10 overflow-hidden bg-[#FCFCFB] grid lg:grid-cols-2">
             <div className="p-7 flex flex-col justify-center order-2 lg:order-1"><p className="label-sm opacity-20">04</p><h4 className="text-[22px] mt-2" style={{ fontFamily: "var(--font-playfair)" }}>Experimental</h4><p className="text-[13.5px] leading-6 opacity-60 mt-3">We test ideas, iterate boldly, and push the brief when it serves a stronger outcome.</p></div>
-            <img src="/images/gallery/press-group.webp" alt="Experimental" className="w-full h-[360px] object-cover order-1 lg:order-2" />
+            <img src="/images/gallery/press-group.png" alt="Experimental" className="w-full h-[360px] object-cover order-1 lg:order-2" />
           </Reveal>
         </div>
       </section>
