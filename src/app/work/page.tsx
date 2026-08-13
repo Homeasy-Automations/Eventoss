@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { projects } from "@/data/work";
-import { HeroImageBand } from "@/components/HeroImageBand";
+import { VideoTeaserHero } from "@/components/VideoTeaserHero";
 import Reveal from "@/components/Reveal";
 import WordReveal from "@/components/WordReveal";
 import ClientRosterGrid from "@/components/ClientRosterGrid";
@@ -35,8 +35,8 @@ export default function WorkPage() {
             <p className="label-sm opacity-30 mt-4 tracking-[0.18em]">A SELECTION OF CORPORATE EVENT ENGAGEMENTS — EDITORIAL CASE STUDIES</p>
           </div>
 
-          <HeroImageBand
-            src="/images/gallery/promo-activity.webp"
+          <VideoTeaserHero
+            src="/images/eventoss-party-crowd.jpg"
             alt="Eventoss show-day production"
             chipLeft="06 Projects"
             chipRight="Patna · Delhi · Ranchi"

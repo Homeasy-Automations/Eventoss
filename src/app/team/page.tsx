@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { team } from "@/data/team";
 import { ArrowUpRight } from "lucide-react";
-import { HeroImageBand } from "@/components/HeroImageBand";
+import { VideoTeaserHero } from "@/components/VideoTeaserHero";
 import Reveal from "@/components/Reveal";
 import WordReveal from "@/components/WordReveal";
 
@@ -26,7 +26,7 @@ export default function TeamPage() {
             <WordReveal as="span" className="block" text="STANDING OVATION." delay={0.16} />
           </h1>
           <p className="text-[14px] leading-6 opacity-60 mt-4 max-w-[560px]">Founder-led. Delivery-obsessed. Meet the leadership team steering Eventoss Corporate Events.</p>
-          <HeroImageBand
+          <VideoTeaserHero
             src="/images/gallery/team-outdoor.jpeg"
             alt="Eventoss leadership team"
             chipLeft="Leadership · Members"
@@ -62,7 +62,7 @@ export default function TeamPage() {
               <p className="text-lg leading-snug mt-3" style={{ fontFamily: "var(--font-playfair)" }}>&ldquo;Strategy, client partnerships, creative direction — founder-led on every engagement.&rdquo;</p>
               <p className="label-sm opacity-30 mt-4">208-A, Kaushalya Estate · 8-office network</p>
             </div>
-            <img src="/images/gallery/press-group.webp" alt="Team detail" className="w-full h-[260px] object-cover transition-transform duration-700 hover:scale-[1.04]" />
+            <img src="/images/eventoss-aliwaris-action.jpg" alt="Eventoss entertainment direction in action" className="w-full h-[260px] object-cover transition-transform duration-700 hover:scale-[1.04]" />
           </div>
         </Reveal>
 

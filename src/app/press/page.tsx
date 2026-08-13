@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { pressMentions } from "@/data/press";
-import { HeroImageBand } from "@/components/HeroImageBand";
+import { VideoTeaserHero } from "@/components/VideoTeaserHero";
 import Reveal from "@/components/Reveal";
 import WordReveal from "@/components/WordReveal";
 import { ArrowUpRight } from "lucide-react";
@@ -28,8 +28,8 @@ export default function PressPage() {
             <p className="label-sm opacity-30 mt-4 tracking-[0.18em]">CHECK OUT OUR RECENT COVERAGE IN THE ESTEEMED PUBLICATIONS</p>
           </div>
 
-          <HeroImageBand
-            src="/images/eventoss-hero-stage.jpg"
+          <VideoTeaserHero
+            src="/images/eventoss-bihargaurav.jpg"
             alt="Eventoss press coverage"
             chipLeft={`${pressMentions.length} Features`}
             chipRight="Patna · Delhi · Ranchi"

@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { HeroImageBand } from "@/components/HeroImageBand";
+import { VideoTeaserHero } from "@/components/VideoTeaserHero";
 import Reveal from "@/components/Reveal";
 import WordReveal from "@/components/WordReveal";
 
@@ -33,8 +33,8 @@ export default function AboutPage() {
               <Link href="/services" className="border border-[#0F2A3D]/15 px-7 h-10 inline-flex items-center label-sm hover:bg-[#0F2A3D] hover:text-white">Explore services</Link>
             </div>
           </Reveal>
-          <HeroImageBand
-            src="/images/eventoss-hero-stage.jpg"
+          <VideoTeaserHero
+            src="/images/eventoss-conference-hall.jpg"
             alt="Eventoss team at work"
             chipLeft="01 — Corporate Events Division"
             chipRight="Patna · Delhi · Ranchi"

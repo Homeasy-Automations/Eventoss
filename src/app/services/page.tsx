@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { pillars } from "@/data/services";
-import { HeroImageBand } from "@/components/HeroImageBand";
+import { VideoTeaserHero } from "@/components/VideoTeaserHero";
 import Reveal from "@/components/Reveal";
 import WordReveal from "@/components/WordReveal";
 
@@ -37,8 +37,8 @@ export default function ServicesPage() {
             </div>
           </div>
 
-          <HeroImageBand
-            src="/images/eventoss-hero-stage.jpg"
+          <VideoTeaserHero
+            src="/images/eventoss-hero-topgear.jpg"
             alt="Eventoss corporate event production"
             chipLeft="Full Catalogue"
             chipRight="8 Verticals · Pan-India"
