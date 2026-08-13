@@ -3,6 +3,7 @@ import Link from "next/link";
 import { projects } from "@/data/work";
 import PageVideoHero from "@/components/PageVideoHero";
 import Reveal from "@/components/Reveal";
+import WordReveal from "@/components/WordReveal";
 import ClientRosterGrid from "@/components/ClientRosterGrid";
 import { brandRoster } from "@/data/clients";
 
@@ -40,9 +41,13 @@ export default function WorkPage() {
       />
 
       <section className="pt-8 lg:pt-10">
-        <div className="mx-auto max-w-[1920px] px-6 lg:px-10">
+        <div className="mx-auto max-w-[1920px] px-6 lg:px-10 border-b border-[#0F2A3D]/10 pb-8">
           <Reveal>
-            <p className="label-sm opacity-30 tracking-[0.18em]">A SELECTION OF CORPORATE EVENT ENGAGEMENTS — EDITORIAL CASE STUDIES</p>
+            <p className="label-sm opacity-30 tracking-[0.18em] mb-4">A SELECTION OF CORPORATE EVENT ENGAGEMENTS — EDITORIAL CASE STUDIES</p>
+            <h2 className="text-[30px] lg:text-[42px] leading-[0.95] tracking-[-0.03em]" style={{ fontFamily: "var(--font-playfair)" }}>
+              <WordReveal as="span" className="block" text="Every project, a" />
+              <span className="block"><span className="italic font-light" style={{ fontFamily: "var(--font-cormorant)" }}>different</span> problem solved.</span>
+            </h2>
           </Reveal>
         </div>
       </section>

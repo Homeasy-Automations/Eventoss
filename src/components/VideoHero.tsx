@@ -3,6 +3,8 @@
 import Link from "next/link";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { ReactNode, useRef } from "react";
+import WordReveal, { LineReveal } from "@/components/WordReveal";
+import Reveal from "@/components/Reveal";
 
 type VideoHeroProps = {
   /** No longer used — hero now plays the local /herovid.mp4 file. Kept optional so existing call sites don't need to change. */
@@ -48,35 +50,45 @@ export default function VideoHero({
 
   title = (
     <>
-      <span className="block text-[13px] lg:text-[15px] tracking-[0.18em] font-semibold text-[#0F2A3D]/40 mb-4">
-        WE DON&apos;T JUST PLAN EVENTS —
-      </span>
+      <WordReveal
+        as="span"
+        className="block text-[13px] lg:text-[15px] tracking-[0.18em] font-semibold text-[#0F2A3D]/40 mb-4"
+        text="WE DON'T JUST PLAN EVENTS —"
+        stagger={0.03}
+      />
 
-      <span className="block text-[#FF3D00] text-[14vw] lg:text-[5.8vw]">
-        We engineer
-      </span>
+      <WordReveal
+        as="span"
+        className="block text-[#FF3D00] text-[14vw] lg:text-[5.8vw]"
+        text="We engineer"
+        delay={0.15}
+      />
 
-      <span
-        className="block text-[#0F2A3D] text-[13vw] lg:text-[5.4vw] font-light italic ml-[8%]"
-        style={{
-          fontFamily: "var(--font-cormorant)",
-        }}
-      >
-        moments
-      </span>
+      <LineReveal delay={0.35}>
+        <span
+          className="block text-[#0F2A3D] text-[13vw] lg:text-[5.4vw] font-light italic ml-[8%]"
+          style={{
+            fontFamily: "var(--font-cormorant)",
+          }}
+        >
+          moments
+        </span>
+      </LineReveal>
 
-      <span className="block text-[#FF3D00] text-[12vw] lg:text-[5vw] ml-[2%]">
-        that move
-      </span>
+      <WordReveal
+        as="span"
+        className="block text-[#FF3D00] text-[12vw] lg:text-[5vw] ml-[2%]"
+        text="that move"
+        delay={0.5}
+      />
 
-      <span
-        className="block text-[#0F2A3D] text-[12vw] lg:text-[5vw] font-black ml-[10%]"
-        style={{
-          fontFamily: "var(--font-inter)",
-        }}
-      >
-        people.
-      </span>
+      <WordReveal
+        as="span"
+        className="block text-[#0F2A3D] text-[12vw] lg:text-[5vw] font-black ml-[10%] [font-family:var(--font-inter)]"
+        text="people."
+        delay={0.65}
+        stagger={0.03}
+      />
     </>
   ),
 
@@ -97,54 +109,58 @@ export default function VideoHero({
 
   chipRight = "Patna · Delhi · Ranchi",
 }: VideoHeroProps) {
-  const heroRef = useRef<HTMLElement>(null);
+  const pinRef = useRef<HTMLDivElement>(null);
 
   /*
-   * Scroll progress drives the video's slow zoom AND the
-   * text-over-video reveal below (opacity/rise + scroll-hint fade).
+   * Scroll progress across the PIN WRAPPER only (not the whole page).
+   * The wrapper is taller than the viewport, so the inner video stays
+   * sticky/pinned in place for that extra scroll distance — during
+   * which the heading text fades + rises in over it. Once the wrapper's
+   * scroll room is used up, the sticky video releases naturally and
+   * Frame 02 (solid background) scrolls up to cover it.
    */
   const { scrollYProgress } = useScroll({
-    target: heroRef,
+    target: pinRef,
     offset: ["start start", "end start"],
   });
 
   const videoScale = useTransform(
     scrollYProgress,
-    [0, 0.5],
-    [1, 1.07]
+    [0, 1],
+    [1, 1.1]
   );
 
-  /* FRAME 01 TEXT REVEAL — hidden at rest, fades/rises in on scroll */
+  /* TEXT REVEAL — hidden at rest, fades/rises in as the pinned video is scrolled through */
 
   const overlayOpacity = useTransform(
     scrollYProgress,
-    [0, 0.16],
+    [0.08, 0.4],
     [0, 1]
   );
 
   const overlayY = useTransform(
     scrollYProgress,
-    [0, 0.16],
-    [36, 0]
+    [0.08, 0.4],
+    [48, 0]
   );
 
   const scrollHintOpacity = useTransform(
     scrollYProgress,
-    [0, 0.08],
+    [0, 0.06],
     [1, 0]
   );
 
   return (
     <section
-      ref={heroRef}
       className="relative bg-white overflow-hidden"
     >
       {/* ============================================================
           FRAME 01
-          VIDEO ONLY
+          PINNED VIDEO — sticky for the height of pinRef, then releases
       ============================================================ */}
 
-      <div className="relative h-[calc(100svh-64px)] min-h-[620px] bg-[#0F2A3D] overflow-hidden">
+      <div ref={pinRef} className="relative h-[220svh]">
+        <div className="sticky top-0 h-[calc(100svh-64px)] min-h-[620px] bg-[#0F2A3D] overflow-hidden">
 
         {/* VIDEO */}
 
@@ -305,6 +321,7 @@ export default function VideoHero({
           />
         </motion.div>
       </div>
+      </div>
 
       {/* ============================================================
           FRAME 02
@@ -391,22 +408,25 @@ export default function VideoHero({
                 {/* DESCRIPTION */}
 
                 {subcopy && (
-                  <p
-                    className="
-                      mt-8
-                      max-w-[600px]
-                      text-[14px]
-                      lg:text-[15px]
-                      leading-7
-                      text-[#0F2A3D]/60
-                    "
-                  >
-                    {subcopy}
-                  </p>
+                  <Reveal delay={0.75}>
+                    <p
+                      className="
+                        mt-8
+                        max-w-[600px]
+                        text-[14px]
+                        lg:text-[15px]
+                        leading-7
+                        text-[#0F2A3D]/60
+                      "
+                    >
+                      {subcopy}
+                    </p>
+                  </Reveal>
                 )}
 
                 {/* CTA AREA */}
 
+                <Reveal delay={0.85}>
                 <div
                   className="
                     mt-8
@@ -490,6 +510,7 @@ export default function VideoHero({
                   </span>
 
                 </div>
+                </Reveal>
               </div>
             </div>
 

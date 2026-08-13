@@ -34,12 +34,16 @@ export default function AboutPage() {
 
       <section className="pt-10 lg:pt-14">
         <div className="mx-auto max-w-[1920px] px-6 lg:px-10">
-          <Reveal className="grid lg:grid-cols-12 gap-6">
-            <p className="lg:col-span-6 text-[14px] leading-6 opacity-60 max-w-[560px]">Eventoss Entertainment Pvt Ltd brings over a decade of experience to conferences, meets, launches, and culture celebrations — delivered with the energy corporate brands deserve.</p>
-            <div className="lg:col-span-6 flex gap-3 lg:justify-end items-start">
-              <Link href="/contact" className="bg-[#0F2A3D] text-white px-7 h-10 inline-flex items-center label-sm">Start a conversation</Link>
-              <Link href="/services" className="border border-[#0F2A3D]/15 px-7 h-10 inline-flex items-center label-sm hover:bg-[#0F2A3D] hover:text-white">Explore services</Link>
-            </div>
+          <Reveal className="grid lg:grid-cols-12 gap-8 items-end border-b border-[#0F2A3D]/10 pb-8">
+            <h2 className="lg:col-span-8 text-[30px] lg:text-[42px] leading-[0.95] tracking-[-0.03em]" style={{ fontFamily: "var(--font-playfair)" }}>
+              <WordReveal as="span" className="block" text="Every brief starts with why it matters." />
+              <span className="block"><span className="italic font-light" style={{ fontFamily: "var(--font-cormorant)" }}>not</span> what it costs.</span>
+            </h2>
+            <p className="lg:col-span-4 text-[14px] leading-6 opacity-60">Eventoss Entertainment Pvt Ltd brings over a decade of experience to conferences, meets, launches, and culture celebrations — delivered with the energy corporate brands deserve.</p>
+          </Reveal>
+          <Reveal delay={0.1} className="flex gap-3 mt-8">
+            <Link href="/contact" className="bg-[#0F2A3D] text-white px-7 h-10 inline-flex items-center label-sm">Start a conversation</Link>
+            <Link href="/services" className="border border-[#0F2A3D]/15 px-7 h-10 inline-flex items-center label-sm hover:bg-[#0F2A3D] hover:text-white">Explore services</Link>
           </Reveal>
         </div>
       </section>

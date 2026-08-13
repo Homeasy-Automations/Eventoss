@@ -3,6 +3,7 @@ import Link from "next/link";
 import { pillars } from "@/data/services";
 import PageVideoHero from "@/components/PageVideoHero";
 import Reveal from "@/components/Reveal";
+import WordReveal from "@/components/WordReveal";
 
 export const metadata: Metadata = {
   title: "Services — 8 Event Verticals | Eventoss",
@@ -35,7 +36,13 @@ export default function ServicesPage() {
       <section className="pt-10 lg:pt-14">
         <div className="mx-auto max-w-[1920px] px-6 lg:px-10">
           <Reveal className="grid lg:grid-cols-12 gap-8 items-end border-b border-[#0F2A3D]/10 pb-8">
-            <p className="lg:col-span-8 label-sm opacity-30 tracking-[0.2em]">CORPORATE · BRAND · CONFERENCES · MICE · EXHIBITIONS · ENTERTAINMENT · GOVERNMENT · SPORTS</p>
+            <div className="lg:col-span-8">
+              <p className="label-sm opacity-30 tracking-[0.2em] mb-4">CORPORATE · BRAND · CONFERENCES · MICE · EXHIBITIONS · ENTERTAINMENT · GOVERNMENT · SPORTS</p>
+              <h2 className="text-[30px] lg:text-[42px] leading-[0.95] tracking-[-0.03em]" style={{ fontFamily: "var(--font-playfair)" }}>
+                <WordReveal as="span" className="block" text="Not templates." />
+                <span className="block">Built for the <span className="italic font-light" style={{ fontFamily: "var(--font-cormorant)" }}>brief</span> in front of us.</span>
+              </h2>
+            </div>
             <div className="lg:col-span-4">
               <p className="text-[14px] leading-6 opacity-60">Eight specialised event verticals — each planned with research, creative direction, and show-day precision.</p>
               <p className="label-sm opacity-30 mt-3">Est. 2012 · Pan-India · Founder-led</p>

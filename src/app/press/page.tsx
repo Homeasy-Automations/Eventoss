@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { pressMentions } from "@/data/press";
 import PageVideoHero from "@/components/PageVideoHero";
 import Reveal from "@/components/Reveal";
+import WordReveal from "@/components/WordReveal";
 import { ArrowUpRight } from "lucide-react";
 
 export const metadata: Metadata = {
@@ -31,6 +32,18 @@ export default function PressPage() {
           </span>
         }
       />
+
+      <section className="pt-10 lg:pt-14">
+        <div className="mx-auto max-w-[1920px] px-6 lg:px-10 border-b border-[#0F2A3D]/10 pb-8">
+          <Reveal>
+            <p className="label-sm opacity-30 tracking-[0.18em] mb-4">{pressMentions.length} FEATURES · PATNA · DELHI · RANCHI</p>
+            <h2 className="text-[30px] lg:text-[42px] leading-[0.95] tracking-[-0.03em]" style={{ fontFamily: "var(--font-playfair)" }}>
+              <WordReveal as="span" className="block" text="Coverage we didn't" />
+              <span className="block">chase — <span className="italic font-light" style={{ fontFamily: "var(--font-cormorant)" }}>we earned</span> it.</span>
+            </h2>
+          </Reveal>
+        </div>
+      </section>
 
       <section className="mx-auto max-w-[1920px] px-6 lg:px-10 py-12 lg:py-16">
         <div className="hairline" />

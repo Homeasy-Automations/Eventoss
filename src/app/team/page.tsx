@@ -4,6 +4,7 @@ import { team } from "@/data/team";
 import { ArrowUpRight } from "lucide-react";
 import PageVideoHero from "@/components/PageVideoHero";
 import Reveal from "@/components/Reveal";
+import WordReveal from "@/components/WordReveal";
 
 export const metadata: Metadata = {
   title: "Team — People Behind Every Standing Ovation | Eventoss",
@@ -34,9 +35,13 @@ export default function TeamPage() {
       />
 
       <section className="pt-8 lg:pt-10">
-        <div className="mx-auto max-w-[1920px] px-6 lg:px-10">
+        <div className="mx-auto max-w-[1920px] px-6 lg:px-10 border-b border-[#0F2A3D]/10 pb-8">
           <Reveal>
-            <p className="text-[14px] leading-6 opacity-60 max-w-[560px]">Founder-led. Delivery-obsessed. Meet the leadership team steering Eventoss Corporate Events.</p>
+            <p className="label-sm opacity-30 tracking-[0.18em] mb-4">LEADERSHIP · FOUNDER-LED · DELIVERY-OBSESSED</p>
+            <h2 className="text-[30px] lg:text-[42px] leading-[0.95] tracking-[-0.03em]" style={{ fontFamily: "var(--font-playfair)" }}>
+              <WordReveal as="span" className="block" text="Twelve years, one" />
+              <span className="block"><span className="italic font-light" style={{ fontFamily: "var(--font-cormorant)" }}>standing</span> promise: show up prepared.</span>
+            </h2>
           </Reveal>
         </div>
       </section>
