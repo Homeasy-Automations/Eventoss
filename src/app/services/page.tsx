@@ -67,7 +67,7 @@ export default function ServicesPage() {
                       <div className={`border border-[#0F2A3D]/10 p-6 lg:p-8 bg-[#FCFCFB] lg:bg-white lg:-ml-10 ${reversed ? "lg:-mr-10 lg:ml-0" : ""} relative overflow-hidden transition-all duration-500 group-hover:shadow-[0_24px_60px_rgba(15,42,61,0.14)] group-hover:-translate-y-1`}>
                         {/* accent bar grows in from the left on hover */}
                         <span className="accent-bar absolute left-0 top-0 bottom-0 w-[3px] bg-[#FF3D00] scale-y-0 group-hover:scale-y-100 origin-top transition-transform duration-500" />
-                        <span className="hidden lg:flex absolute -top-3 left-6 w-6 h-6 rounded-full bg-[#0F2A3D] text-white items-center justify-center text-xs transition-transform duration-500 group-hover:rotate-45 group-hover:bg-[#FF3D00]">→</span>
+                        {/* <span className="hidden lg:flex absolute -top-3 left-6 w-6 h-6 rounded-full bg-[#0F2A3D] text-white items-center justify-center text-xs transition-transform duration-500 group-hover:rotate-45 group-hover:bg-[#FF3D00]">→</span> */}
                         <p className="label-sm opacity-30">{s.number} — Vertical</p>
                         <h3 className="text-[20px] lg:text-[24px] leading-none tracking-[-0.02em] mt-3" style={{ fontFamily: "var(--font-playfair)" }}>{s.title}</h3>
                         <p className="text-[13px] leading-6 opacity-60 mt-3">{s.tagline}</p>
