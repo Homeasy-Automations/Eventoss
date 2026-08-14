@@ -59,8 +59,43 @@ export default async function ServiceDetail({ params }: { params: Promise<{ slug
               Planned with precision.<br />Delivered with <span className="italic font-light">impact.</span>
             </h2>
             <p className="text-[15px] leading-7 opacity-60 mt-6 max-w-[600px]">{service.description}</p>
-            <div className="mt-10 grid grid-cols-1 gap-0 border-y border-[#0F2A3D]/10 divide-y divide-[#0F2A3D]/10">
-              {service.subservices.map((item, i) => (
+
+            {/* Gallery wall — framed, alternating aspect-ratio photo cards, one per
+                sub-offering. Mat-board border + numbered corner tab echo the
+                site's existing card language; grayscale→colour hover matches
+                the team page treatment. */}
+            <p className="label-sm opacity-30 mt-10">What&apos;s included — {service.subservices.length} offerings</p>
+            <div className="mt-4 grid grid-cols-2 gap-4 lg:gap-5">
+              {service.subservices.map((sub, i) => (
+                <div
+                  key={sub.slug}
+                  className={`group ${i % 2 === 1 ? "mt-6 lg:mt-10" : ""}`}
+                >
+                  <div className="relative overflow-hidden bg-white border border-[#0F2A3D]/10 p-1.5">
+                    <div className={`relative overflow-hidden ${i % 3 === 0 ? "aspect-[3/4]" : i % 3 === 1 ? "aspect-[4/3]" : "aspect-square"}`}>
+                      <img
+                        src={sub.image}
+                        alt={sub.title}
+                        className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 group-hover:scale-[1.04]"
+                      />
+                      <span className="absolute top-3 left-3 w-7 h-7 rounded-full bg-white/90 border border-[#0F2A3D]/10 flex items-center justify-center label-sm text-[10px]">
+                        {String(i + 1).padStart(2, "0")}
+                      </span>
+                      <span className="accent-bar absolute left-0 bottom-0 right-0 h-[3px] bg-[#FF3D00] scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-500" />
+                    </div>
+                  </div>
+                  <h3 className="text-[15px] leading-5 mt-3" style={{ fontFamily: "var(--font-playfair)" }}>{sub.title}</h3>
+                  <p className="text-[12.5px] leading-5 opacity-50 mt-1.5">{sub.blurb}</p>
+                </div>
+              ))}
+            </div>
+
+            {/* Full offerings checklist — the original detailed, text-based
+                list, kept alongside the curated photo gallery above so
+                nothing from the previous list view is lost. */}
+            <p className="label-sm opacity-30 mt-12">Full list of services — {service.fullOfferings.length}</p>
+            <div className="mt-4 grid grid-cols-1 gap-0 border-y border-[#0F2A3D]/10 divide-y divide-[#0F2A3D]/10">
+              {service.fullOfferings.map((item, i) => (
                 <div key={item} className="group flex gap-4 py-4 items-start transition-colors duration-300 hover:bg-[#FCFCFB] active:bg-[#FCFCFB] px-2 -mx-2">
                   <span className="w-7 h-7 rounded-full bg-[#0F2A3D] text-white flex items-center justify-center flex-shrink-0 mt-0.5 transition-colors duration-300 group-hover:bg-[#FF3D00]">
                     <Check className="w-3 h-3" />
@@ -76,9 +111,10 @@ export default async function ServiceDetail({ params }: { params: Promise<{ slug
               <span className="accent-bar absolute left-0 top-0 bottom-0 w-[3px] bg-[#FF3D00] scale-y-0 group-hover:scale-y-100 origin-top transition-transform duration-500" />
               <p className="label-sm opacity-30">What we cover</p>
               <ul className="mt-6 space-y-3">
-                {service.subservices.map((inc) => (
-                  <li key={inc} className="flex gap-3 text-sm leading-6">
-                    <span className="w-1.5 h-1.5 bg-[#0F2A3D] rounded-full mt-2 flex-shrink-0" /> {inc}
+                {service.subservices.map((sub) => (
+                  <li key={sub.slug} className="flex items-center gap-3 text-sm leading-6">
+                    <img src={sub.image} alt="" className="w-9 h-9 rounded-full object-cover border border-[#0F2A3D]/10 flex-shrink-0 grayscale" />
+                    {sub.title}
                   </li>
                 ))}
               </ul>

@@ -78,7 +78,19 @@ export default function ServicesPage() {
                         <p className="label-sm opacity-30">{s.number} — Vertical</p>
                         <h3 className="text-[20px] lg:text-[24px] leading-none tracking-[-0.02em] mt-3" style={{ fontFamily: "var(--font-playfair)" }}>{s.title}</h3>
                         <p className="text-[13px] leading-6 opacity-60 mt-3">{s.tagline}</p>
-                        <p className="text-[12px] leading-6 opacity-40 mt-4 line-clamp-2 hidden lg:block">{s.subservices.slice(0, 5).join(" · ")}…</p>
+                        <div className="hidden lg:flex items-center gap-3 mt-4">
+                          <div className="flex -space-x-3">
+                            {s.subservices.slice(0, 3).map((sub) => (
+                              <img
+                                key={sub.slug}
+                                src={sub.image}
+                                alt=""
+                                className="w-8 h-8 rounded-full object-cover border-2 border-white grayscale"
+                              />
+                            ))}
+                          </div>
+                          <p className="text-[12px] opacity-40">{s.subservices.length} offerings</p>
+                        </div>
                         <span className="inline-flex items-center gap-2 label-sm mt-5 border-b border-[#0F2A3D]/20 pb-1 group-hover:border-[#0F2A3D] group-hover:gap-3 transition-all duration-500">Explore vertical</span>
                       </div>
                     </div>
