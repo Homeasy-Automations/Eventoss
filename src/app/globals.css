@@ -79,6 +79,39 @@ body {
   -webkit-text-stroke: 1px rgba(255,255,255,0.18);
 }
 
+.text-gradient-warm {
+  background: linear-gradient(92deg, #FFD9B0 0%, #FF8A5B 45%, #FF3D00 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+.hero-glow-text {
+  text-shadow: 0 0 24px rgba(255, 138, 91, 0.45), 0 0 52px rgba(255, 61, 0, 0.28), 0 4px 40px rgba(0, 0, 0, 0.45);
+}
+
+.hero-eyebrow-rule {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+.hero-eyebrow-rule::before {
+  content: "";
+  width: 22px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255, 138, 91, 0.9));
+}
+.hero-eyebrow-rule::after {
+  content: "";
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: #FF8A5B;
+  box-shadow: 0 0 10px 2px rgba(255, 138, 91, 0.7);
+}
+
 .green-display {
   font-family: var(--font-playfair), serif;
   color: #1B9C6E;

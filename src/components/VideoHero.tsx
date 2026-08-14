@@ -1,10 +1,11 @@
 "use client";
 
 import Link from "next/link";
-import { motion, useScroll, useTransform } from "framer-motion";
-import { ReactNode, useRef } from "react";
+import { motion } from "framer-motion";
+import { ReactNode } from "react";
 import WordReveal, { LineReveal } from "@/components/WordReveal";
 import Reveal from "@/components/Reveal";
+import PageVideoHero from "@/components/PageVideoHero";
 
 type VideoHeroProps = {
   /** No longer used — hero now plays the local /herovid.mp4 file. Kept optional so existing call sites don't need to change. */
@@ -109,219 +110,45 @@ export default function VideoHero({
 
   chipRight = "Patna · Delhi · Ranchi",
 }: VideoHeroProps) {
-  const pinRef = useRef<HTMLDivElement>(null);
-
-  /*
-   * Scroll progress across the PIN WRAPPER only (not the whole page).
-   * The wrapper is taller than the viewport, so the inner video stays
-   * sticky/pinned in place for that extra scroll distance — during
-   * which the heading text fades + rises in over it. Once the wrapper's
-   * scroll room is used up, the sticky video releases naturally and
-   * Frame 02 (solid background) scrolls up to cover it.
-   */
-  const { scrollYProgress } = useScroll({
-    target: pinRef,
-    offset: ["start start", "end start"],
-  });
-
-  const videoScale = useTransform(
-    scrollYProgress,
-    [0, 1],
-    [1, 1.1]
-  );
-
-  /* TEXT REVEAL — hidden at rest, fades/rises in as the pinned video is scrolled through */
-
-  const overlayOpacity = useTransform(
-    scrollYProgress,
-    [0.08, 0.4],
-    [0, 1]
-  );
-
-  const overlayY = useTransform(
-    scrollYProgress,
-    [0.08, 0.4],
-    [48, 0]
-  );
-
-  const scrollHintOpacity = useTransform(
-    scrollYProgress,
-    [0, 0.06],
-    [1, 0]
-  );
-
   return (
     <section
       className="relative bg-white overflow-hidden"
     >
       {/* ============================================================
           FRAME 01
-          PINNED VIDEO — sticky for the height of pinRef, then releases
+          PINNED VIDEO — shared with every other page's hero via
+          PageVideoHero. Homepage gets the 3-line cascading heading +
+          a script tagline underneath to fill out the frame.
       ============================================================ */}
 
-      <div ref={pinRef} className="relative h-[220svh]">
-        <div className="sticky top-0 h-[calc(100svh-64px)] min-h-[620px] bg-[#0F2A3D] overflow-hidden">
-
-        {/* VIDEO */}
-
-        <motion.div
-          style={{
-            scale: videoScale,
-          }}
-          className="absolute inset-0"
-        >
-          <video
-            className="absolute inset-0 w-full h-full object-cover"
-            src="/herovid.mp4"
-            poster={poster}
-            autoPlay
-            muted
-            loop
-            playsInline
-          />
-        </motion.div>
-
-        {/* VIDEO OVERLAY */}
-
-        <div className="absolute inset-0 bg-black/10 pointer-events-none" />
-
-        {/* BOTTOM GRADIENT — keeps the reveal text readable over the footage */}
-
-        <div className="absolute inset-x-0 bottom-0 h-[55%] bg-gradient-to-t from-black/55 via-black/15 to-transparent pointer-events-none" />
-
-        {/* SCROLL-REVEAL TEXT — hidden at rest, fades + rises in as you scroll */}
-
-        <motion.div
-          style={{
-            opacity: overlayOpacity,
-            y: overlayY,
-          }}
-          className="
-            absolute
-            inset-x-0
-            bottom-[14%]
-            lg:bottom-[16%]
-            z-10
-            px-6
-            lg:px-10
-            text-center
-            pointer-events-none
-          "
-        >
-          <span className="label-sm text-white/80 tracking-[0.32em]">
-            {eyebrow}
-          </span>
-
-          <h2
-            className="
-              mt-5
-              text-[13vw]
-              lg:text-[5.2vw]
-              font-semibold
-              leading-[0.98]
-              tracking-[-0.03em]
-              text-white
-              [text-shadow:0_4px_40px_rgba(0,0,0,0.45)]
-            "
-            style={{
-              fontFamily: "var(--font-playfair)",
-            }}
-          >
-            We{" "}
-            <span className="text-[#FF8A5B]">engineer</span> moments
-            that{" "}
+      <PageVideoHero
+        videoSrc="/herovid.mp4"
+        poster={poster}
+        chipLeft={chipLeft}
+        chipRight={chipRight}
+        bottomLabel="EVENTOSS ENTERTAINMENT · CORPORATE EVENTS"
+        eyebrow={eyebrow}
+        pinHeightClassName="h-[170svh]"
+        minHeightClassName="h-[calc(100svh-64px)] min-h-[620px]"
+        headingLines={[
+          <span key="l1" className="text-[13vw] lg:text-[5.4vw]">
+            We <span className="text-gradient-warm font-bold">engineer</span>
+          </span>,
+          <span key="l2" className="text-[13vw] lg:text-[5.4vw]">
+            moments that
+          </span>,
+          <span key="l3" className="text-[13vw] lg:text-[5.4vw]">
             <span
-              className="italic font-normal text-[#FF8A5B]"
+              className="italic font-normal text-gradient-warm"
               style={{ fontFamily: "var(--font-cormorant)" }}
             >
               move
             </span>{" "}
             people.
-          </h2>
-        </motion.div>
-
-        {/* TOP LEFT CHIP */}
-
-        <div className="absolute top-6 lg:top-8 left-6 lg:left-10 z-20">
-          <span
-            className="
-              label-sm
-              text-white/75
-              bg-black/20
-              backdrop-blur-sm
-              border
-              border-white/15
-              px-3
-              py-1.5
-            "
-          >
-            {chipLeft}
-          </span>
-        </div>
-
-        {/* TOP RIGHT CHIP */}
-
-        <div className="absolute top-6 lg:top-8 right-6 lg:right-10 z-20 hidden lg:block">
-          <span
-            className="
-              label-sm
-              text-white/75
-              bg-black/20
-              backdrop-blur-sm
-              border
-              border-white/15
-              px-3
-              py-1.5
-            "
-          >
-            {chipRight}
-          </span>
-        </div>
-
-        {/* BOTTOM LEFT LABEL */}
-
-        <div className="absolute bottom-8 left-6 lg:left-10 z-20">
-          <span className="label-sm text-white/65">
-            EVENTOSS ENTERTAINMENT · CORPORATE EVENTS
-          </span>
-        </div>
-
-        {/* SCROLL INDICATOR — fades out as the reveal text fades in */}
-
-        <motion.div
-          style={{
-            opacity: scrollHintOpacity,
-          }}
-          className="
-            absolute
-            bottom-8
-            left-1/2
-            -translate-x-1/2
-            z-20
-            flex
-            flex-col
-            items-center
-            text-white/70
-          "
-        >
-          <span className="text-[10px] tracking-[0.3em] mb-2">
-            SCROLL TO REVEAL
-          </span>
-
-          <motion.span
-            animate={{
-              y: [0, 8, 0],
-            }}
-            transition={{
-              duration: 2,
-              repeat: Infinity,
-              ease: "easeInOut",
-            }}
-            className="w-px h-8 bg-white/50"
-          />
-        </motion.div>
-      </div>
-      </div>
+          </span>,
+        ]}
+        tagline="Precision is not an accident. It's a process."
+      />
 
       {/* ============================================================
           FRAME 02

@@ -12,19 +12,32 @@ type PageVideoHeroProps = {
   chipRight: string;
   bottomLabel: string;
   eyebrow: string;
-  /** Large heading, revealed on scroll. Pass white/accent-colored spans. */
-  heading: ReactNode;
+  /**
+   * Single-block heading (most pages). Revealed as one fast cascade.
+   * Use `headingLines` instead if you want each line to stagger in
+   * separately (that's what the homepage hero uses).
+   */
+  heading?: ReactNode;
+  /** Up to 4 lines, each staggered slightly after the previous one. */
+  headingLines?: ReactNode[];
+  /** Optional small italic caption under the heading — good for filling
+   *  the empty space below a short headline with a bit of brand voice. */
+  tagline?: string;
   minHeightClassName?: string;
+  /** Height of the scroll-room wrapper the video stays pinned inside. */
+  pinHeightClassName?: string;
 };
 
 /**
- * PINNED hero. The video sits inside a tall wrapper (220svh) and is
+ * PINNED hero. The video sits inside a tall wrapper and is
  * `position: sticky`, so it freezes in the viewport while the visitor
  * keeps scrolling through that extra height. During that scroll, the
- * eyebrow + heading fade/rise in over the still-pinned footage. Once
- * the wrapper's extra scroll room is used up, the sticky video releases
- * naturally and the page's next section (solid background) scrolls up
- * to cover it — no manual "unpin" logic needed, it's plain CSS sticky.
+ * eyebrow + heading cascade in over the still-pinned footage — starting
+ * almost immediately (no dead scroll before anything happens) and
+ * finishing well before the wrapper's scroll room runs out. Once that
+ * room is used up, the sticky video releases naturally and the page's
+ * next section (solid background) scrolls up to cover it — no manual
+ * "unpin" logic needed, it's plain CSS sticky.
  */
 export default function PageVideoHero({
   videoSrc,
@@ -34,7 +47,10 @@ export default function PageVideoHero({
   bottomLabel,
   eyebrow,
   heading,
+  headingLines,
+  tagline,
   minHeightClassName = "h-[calc(100svh-64px)] min-h-[560px]",
+  pinHeightClassName = "h-[170svh]",
 }: PageVideoHeroProps) {
   const pinRef = useRef<HTMLDivElement>(null);
 
@@ -44,12 +60,38 @@ export default function PageVideoHero({
   });
 
   const videoScale = useTransform(scrollYProgress, [0, 1], [1, 1.1]);
-  const overlayOpacity = useTransform(scrollYProgress, [0.08, 0.4], [0, 1]);
-  const overlayY = useTransform(scrollYProgress, [0.08, 0.4], [48, 0]);
-  const scrollHintOpacity = useTransform(scrollYProgress, [0, 0.06], [1, 0]);
+
+  /* EYEBROW — leads the cascade, settled almost immediately */
+  const eyebrowOpacity = useTransform(scrollYProgress, [0, 0.12], [0, 1]);
+  const eyebrowY = useTransform(scrollYProgress, [0, 0.12], [16, 0]);
+
+  /* HEADING — up to 4 lines, each a touch behind the last. Fixed hook
+     count (rules-of-hooks safe) even though not every page uses all 4. */
+  const line0Opacity = useTransform(scrollYProgress, [0.02, 0.19], [0, 1]);
+  const line0Y = useTransform(scrollYProgress, [0.02, 0.19], [32, 0]);
+  const line1Opacity = useTransform(scrollYProgress, [0.07, 0.24], [0, 1]);
+  const line1Y = useTransform(scrollYProgress, [0.07, 0.24], [32, 0]);
+  const line2Opacity = useTransform(scrollYProgress, [0.12, 0.29], [0, 1]);
+  const line2Y = useTransform(scrollYProgress, [0.12, 0.29], [32, 0]);
+  const line3Opacity = useTransform(scrollYProgress, [0.17, 0.34], [0, 1]);
+  const line3Y = useTransform(scrollYProgress, [0.17, 0.34], [32, 0]);
+  const lineMotions = [
+    { opacity: line0Opacity, y: line0Y },
+    { opacity: line1Opacity, y: line1Y },
+    { opacity: line2Opacity, y: line2Y },
+    { opacity: line3Opacity, y: line3Y },
+  ];
+
+  /* TAGLINE — arrives just after the heading finishes */
+  const taglineOpacity = useTransform(scrollYProgress, [0.22, 0.38], [0, 1]);
+  const taglineY = useTransform(scrollYProgress, [0.22, 0.38], [18, 0]);
+
+  const scrollHintOpacity = useTransform(scrollYProgress, [0, 0.05], [1, 0]);
+
+  const lines = headingLines ?? (heading ? [heading] : []);
 
   return (
-    <div ref={pinRef} className="relative h-[220svh]">
+    <div ref={pinRef} className={`relative ${pinHeightClassName}`}>
       <div
         className={`sticky top-0 bg-[#0F2A3D] overflow-hidden ${minHeightClassName}`}
       >
@@ -83,43 +125,64 @@ export default function PageVideoHero({
 
         {/* VIDEO OVERLAY */}
 
-        <div className="absolute inset-0 bg-black/10 pointer-events-none" />
+        <div className="absolute inset-0 bg-black/25 pointer-events-none" />
 
-        {/* BOTTOM GRADIENT — keeps the reveal text readable over the footage */}
+        {/* CENTER VIGNETTE — keeps the big centered text readable over any footage */}
 
-        <div className="absolute inset-x-0 bottom-0 h-[55%] bg-gradient-to-t from-black/55 via-black/15 to-transparent pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/35 via-black/10 to-black/45 pointer-events-none" />
 
-        {/* SCROLL-REVEAL TEXT — hidden at rest, fades + rises in while the video stays pinned */}
+        {/* SCROLL-REVEAL TEXT — big, centered, fills the frame instead of
+            hugging the bottom edge. Cascades in fast, no dead scroll. */}
 
-        <motion.div
-          style={{ opacity: overlayOpacity, y: overlayY }}
+        <div
           className="
             absolute
-            inset-x-0
-            bottom-[14%]
-            lg:bottom-[16%]
+            inset-0
             z-10
+            flex
+            flex-col
+            items-center
+            justify-center
             px-6
             lg:px-10
             text-center
             pointer-events-none
           "
         >
-          <span className="label-sm text-white/80 tracking-[0.32em]">{eyebrow}</span>
+          <motion.span
+            style={{ opacity: eyebrowOpacity, y: eyebrowY }}
+            className="hero-eyebrow-rule label-sm text-white/85 tracking-[0.34em] mb-5 lg:mb-7"
+          >
+            {eyebrow}
+          </motion.span>
+
           <div
-            className="
-              mt-5
-              font-semibold
-              leading-[0.98]
-              tracking-[-0.03em]
-              text-white
-              [text-shadow:0_4px_40px_rgba(0,0,0,0.45)]
-            "
+            className="hero-glow-text font-semibold leading-[0.95] tracking-[-0.03em] text-white"
             style={{ fontFamily: "var(--font-playfair)" }}
           >
-            {heading}
+            {lines.map((line, i) => (
+              <motion.div
+                key={i}
+                style={{ opacity: lineMotions[i].opacity, y: lineMotions[i].y }}
+              >
+                {line}
+              </motion.div>
+            ))}
           </div>
-        </motion.div>
+
+          {tagline && (
+            <motion.p
+              style={{
+                opacity: taglineOpacity,
+                y: taglineY,
+                fontFamily: "var(--font-cormorant)",
+              }}
+              className="mt-6 lg:mt-8 text-[16px] lg:text-[20px] italic text-white/85"
+            >
+              {tagline}
+            </motion.p>
+          )}
+        </div>
 
         {/* TOP LEFT CHIP */}
 
