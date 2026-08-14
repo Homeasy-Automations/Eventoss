@@ -199,14 +199,14 @@ export default function Home() {
               <span className="vertical-label hidden lg:block absolute -left-10 top-0">WHAT WE DELIVER — 03</span>
               <p className="label-sm opacity-30 lg:hidden">What we deliver — 03</p>
               <h2 className="mt-3 orange-display text-[10vw] lg:text-[4.8vw] leading-[0.82]">
-                <WordReveal as="span" className="block" text="FOURTEEN" />
+                <WordReveal as="span" className="block" text="Eight" />
                 <WordReveal as="span" className="block ml-[10%]" text="FORMATS." delay={0.08} />
                 <WordReveal as="span" className="block" text="ONE STANDARD" delay={0.16} />
                 <span className="block ml-[6%] text-[#0F2A3D] text-[24px] lg:text-[28px] tracking-[-0.02em] normal-case font-light italic mt-2" style={{ fontFamily: "var(--font-playfair)" }}>of excellence.</span>
               </h2>
-              <p className="text-[14px] leading-6 opacity-60 mt-6 max-w-[420px]">Fourteen specialised corporate event types — each planned with research, creative direction, and show-day precision. No templates, no generic party planning.</p>
+              <p className="text-[14px] leading-6 opacity-60 mt-6 max-w-[420px]">Eight specialised corporate event types — each planned with research, creative direction, and show-day precision. No templates, no generic party planning.</p>
               <Link href="/services" className="inline-flex items-center gap-3 mt-8 bg-[#0F2A3D] text-white px-7 h-11 label-sm">
-                View all 14 <span className="w-6 h-6 rounded-full bg-white text-[#0F2A3D] flex items-center justify-center text-xs">→</span>
+                View all 8 <span className="w-6 h-6 rounded-full bg-white text-[#0F2A3D] flex items-center justify-center text-xs">→</span>
               </Link>
               <div className="mt-10 hidden lg:block border border-[#0F2A3D]/10 bg-white p-5">
                 <p className="label-sm opacity-30">Bespoke</p>
