@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { brandRoster, type ClientCategory } from "@/data/clients";
 import Reveal from "@/components/Reveal";
+import ClientDetailModal from "@/components/ClientDetailModal";
 
 const tabs: Array<ClientCategory | "All"> = [
   "All",
@@ -13,14 +14,21 @@ const tabs: Array<ClientCategory | "All"> = [
 ];
 
 /**
- * Compact, non-clickable grid of the real named-client roster — one card
- * per brand (deduplicated across repeat engagements) — mirrors the
- * filterable tab structure eventoss.in itself uses on its Work page.
+ * Grid of the real named-client roster — one card per brand (deduplicated
+ * across repeat engagements) — mirrors the filterable tab structure
+ * eventoss.in itself uses on its Work page. Clicking a card opens a detail
+ * popup (image + description), matching eventoss.in's own project lightbox.
  */
 export default function ClientRosterGrid() {
   const [active, setActive] = useState<ClientCategory | "All">("All");
+  const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
 
   const visible = active === "All" ? brandRoster : brandRoster.filter((c) => c.category === active);
+
+  const closeModal = () => setSelectedIndex(null);
+  const showPrev = () =>
+    setSelectedIndex((i) => (i === null ? null : (i - 1 + visible.length) % visible.length));
+  const showNext = () => setSelectedIndex((i) => (i === null ? null : (i + 1) % visible.length));
 
   return (
     <div>
@@ -28,7 +36,10 @@ export default function ClientRosterGrid() {
         {tabs.map((tab) => (
           <button
             key={tab}
-            onClick={() => setActive(tab)}
+            onClick={() => {
+              setActive(tab);
+              setSelectedIndex(null);
+            }}
             className={`label-sm px-4 py-2 border transition-colors duration-300 ${
               active === tab
                 ? "bg-[#0F2A3D] text-white border-[#0F2A3D]"
@@ -47,7 +58,19 @@ export default function ClientRosterGrid() {
       <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-5 mt-8">
         {visible.map((c, i) => (
           <Reveal key={c.slug} direction="up" distance={20} duration={0.55} amount={0.15} delay={(i % 6) * 0.05}>
-            <div className="group relative h-[240px] overflow-hidden transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] hover:-translate-y-2 hover:shadow-[0_24px_60px_rgba(15,42,61,0.28)]">
+            <div
+              role="button"
+              tabIndex={0}
+              data-cursor="VIEW"
+              onClick={() => setSelectedIndex(i)}
+              onKeyDown={(e) => {
+                if (e.key === "Enter" || e.key === " ") {
+                  e.preventDefault();
+                  setSelectedIndex(i);
+                }
+              }}
+              className="group relative h-[240px] overflow-hidden cursor-pointer transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] hover:-translate-y-2 hover:shadow-[0_24px_60px_rgba(15,42,61,0.28)]"
+            >
               {/* Full-card background — brand colour panel with the logo (or
                   monogram fallback) as the hero art, so the whole card reads
                   as one image rather than a small watermark in the corner. */}
@@ -98,6 +121,13 @@ export default function ClientRosterGrid() {
           </Reveal>
         ))}
       </div>
+
+      <ClientDetailModal
+        client={selectedIndex === null ? null : visible[selectedIndex]}
+        onClose={closeModal}
+        onPrev={showPrev}
+        onNext={showNext}
+      />
     </div>
   );
 }
