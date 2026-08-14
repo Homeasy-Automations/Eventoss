@@ -112,7 +112,7 @@ export default function VideoHero({
 }: VideoHeroProps) {
   return (
     <section
-      className="relative bg-white overflow-hidden"
+      className="relative bg-white"
     >
       {/* ============================================================
           FRAME 01
@@ -122,7 +122,7 @@ export default function VideoHero({
       ============================================================ */}
 
       <PageVideoHero
-        videoSrc="/herovid.mp4"
+        videoSrc="/herovid1.mp4"
         poster={poster}
         chipLeft={chipLeft}
         chipRight={chipRight}
