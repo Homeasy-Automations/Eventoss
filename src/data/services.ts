@@ -187,7 +187,7 @@ export const pillars: Pillar[] = [
       "Meeting & Convention Planning", "Trade Show & Exhibition Travel",
       "Corporate Retreats & Offsites", "Hospitality & Guest Management",
     ],
-    image: "corporate-event1.jpg",
+    image: "Corporate-event1.jpg",
     heroImage: "/images/blog/12-away-from-chaos.jpg",
     secondaryImage: "/images/gallery/event-crowd.png",
   },
