@@ -105,7 +105,7 @@ export default function Home() {
               <div className="grid grid-cols-12 gap-4">
                 <div className="col-span-8 relative">
                   <motion.div initial={{ clipPath: "inset(0 100% 0 0)" }} whileInView={{ clipPath: "inset(0 0% 0 0)" }} viewport={{ once: true }} transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }} className="overflow-hidden">
-                    <img src="/images/gallery/event-stage-trio.webp" alt="Stage" className="w-full h-[520px] lg:h-[640px] object-cover" />
+                    <img src="/img/husk.jpeg" alt="Stage" className="w-full h-[520px] lg:h-[640px] object-cover" />
                   </motion.div>
                   <p className="label-sm opacity-30 mt-2">01 — Stage & content architecture · Patna HQ</p>
                   {/* overlapping quote — editorial caption overlapping photo */}
@@ -374,7 +374,7 @@ export default function Home() {
                 <p className="text-sm leading-6 text-white/50 mt-6 max-w-[420px]">A calm, research-led sequence that removes chaos and leaves room for magic on show day. Zero-surprise delivery.</p>
                 <div className="hairline-white mt-8 opacity-20" />
                 <div className="mt-8 overflow-hidden">
-                  <img src="/images/gallery/office-exterior.webp" alt="Process" className="w-full h-[380px] object-cover" />
+                  <img src="culturalevent.jpg" alt="Process" className="w-full h-[380px] object-cover" />
                   <p className="label-sm text-white/30 mt-3">Run-of-show · Tech checks · Show-calling · Contingency</p>
                 </div>
               </div>
@@ -424,7 +424,7 @@ export default function Home() {
           <div className="mt-14 grid lg:grid-cols-12 gap-10 lg:gap-12 items-start">
             <Reveal direction="right" className="lg:col-span-7 relative">
               <div className="overflow-hidden">
-                <img src="/images/gallery/celebrity-event.png" alt="Why" className="w-full h-[460px] lg:h-[560px] object-cover" />
+                <img src="officeimg.png" alt="Why" className="w-full h-[460px] lg:h-[560px] object-cover" />
               </div>
               <p className="label-sm opacity-30 mt-2">Founder-led · Delivery-obsessed · Local fluency, national standards</p>
               <div className="hidden lg:block absolute -bottom-8 -right-8 bg-[#F4F3F0] border border-[#0F2A3D]/10 p-6 max-w-[300px]">
@@ -456,7 +456,7 @@ export default function Home() {
               {/* asymmetric 2 images instead of 3 equal */}
               <div className="mt-8 grid grid-cols-12 gap-4">
                 <div className="col-span-7 overflow-hidden">
-                  <img src="/images/gallery/event-setup.webp" alt="detail" className="w-full h-[200px] object-cover" />
+                  <img src="OIP4.webp" alt="detail" className="w-full h-[200px] object-cover" />
                 </div>
                 <div className="col-span-5 flex flex-col gap-4">
                   <img src="/images/blog/12-away-from-chaos.jpg" alt="detail" className="w-full h-[92px] object-cover" />
