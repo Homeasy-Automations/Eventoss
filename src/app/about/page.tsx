@@ -99,7 +99,7 @@ export default function AboutPage() {
             </Reveal>
             <Reveal direction="left" delay={0.1} className="lg:col-span-7">
               <div className="bg-white border border-[#0F2A3D]/10 p-6 lg:p-10">
-                <img src="/images/gallery/womens-day-stage.png" alt="Map editorial" className="w-full h-[380px] object-cover" />
+                <img src="Aliwaris1.jpg" alt="Map editorial" className="w-full h-[380px] object-top" />
                 <div className="grid grid-cols-3 gap-6 mt-8 border-t border-[#0F2A3D]/10 pt-6">
                   <div><p className="text-2xl font-light" style={{ fontFamily: "var(--font-playfair)" }}>12+</p><p className="label-sm opacity-30">Years</p></div>
                   <div><p className="text-2xl font-light" style={{ fontFamily: "var(--font-playfair)" }}>410+</p><p className="label-sm opacity-30">Clients</p></div>
@@ -123,7 +123,7 @@ export default function AboutPage() {
             <div className="p-7 flex flex-col justify-center"><p className="label-sm opacity-20">01</p><h4 className="text-[22px] mt-2" style={{ fontFamily: "var(--font-playfair)" }}>Experience</h4><p className="text-[13.5px] leading-6 opacity-60 mt-3">Twelve years and 4,700+ projects mean we anticipate edge cases before they become problems.</p></div>
           </Reveal>
           <Reveal delay={0.1} className="lg:col-span-5 border border-[#0F2A3D]/10 overflow-hidden bg-white">
-            <img src="/images/eventoss-detail-coffee.jpg" alt="Innovative" className="w-full h-[220px] object-cover" />
+            <img src="inovation.png" alt="Innovative" className="w-full h-[220px] object-cover" />
             <div className="p-6"><p className="label-sm opacity-20">02</p><h4 className="text-[18px] mt-2" style={{ fontFamily: "var(--font-playfair)" }}>Innovative</h4><p className="text-[13.5px] leading-6 opacity-60 mt-3">Fresh formats, smart tech, and modern production that keep corporate audiences genuinely engaged.</p></div>
           </Reveal>
           <Reveal delay={0.05} className="lg:col-span-5 border border-[#0F2A3D]/10 overflow-hidden bg-white">
@@ -145,7 +145,7 @@ export default function AboutPage() {
               <p className="label-sm text-white/30">Process — 04 · Research → Concept → Develop → Test</p>
               <h3 className="text-[36px] lg:text-[44px] leading-[0.9] mt-4" style={{ fontFamily: "var(--font-playfair)" }}>A clear path from<br /><span className="italic font-light">brief to bravo.</span></h3>
               <p className="text-sm leading-6 text-white/50 mt-4 max-w-[360px]">Sticky narrative — steps reveal as you scroll. Zero-surprise delivery with cinematic transitions.</p>
-              <img src="/images/gallery/office-exterior.webp" alt="Process" className="w-full h-[300px] object-cover mt-8 opacity-70" />
+              <img src="banquet.png" alt="Process" className="w-full h-[300px] object-cover mt-8 opacity-70" />
             </Reveal>
             <div className="lg:col-span-7 space-y-0 divide-y divide-white/10 border-y border-white/10">
               {[
