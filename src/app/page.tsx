@@ -424,7 +424,7 @@ export default function Home() {
           <div className="mt-14 grid lg:grid-cols-12 gap-10 lg:gap-12 items-start">
             <Reveal direction="right" className="lg:col-span-7 relative">
               <div className="overflow-hidden">
-                <img src="officeimg.png" alt="Why" className="w-full h-[460px] lg:h-[560px] object-cover" />
+                <img src="officeimg.png" alt="Why" className="w-full h-[460px] lg:h-[560px] object-top" />
               </div>
               <p className="label-sm opacity-30 mt-2">Founder-led · Delivery-obsessed · Local fluency, national standards</p>
               <div className="hidden lg:block absolute -bottom-8 -right-8 bg-[#F4F3F0] border border-[#0F2A3D]/10 p-6 max-w-[300px]">
