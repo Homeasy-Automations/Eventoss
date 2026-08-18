@@ -311,7 +311,7 @@ export const pillars: Pillar[] = [
       "Festivals & Fairs", "Citizen Engagement Programs", "Roadshows",
       "State & National Level Events", "Protocol & VIP Management",
     ],
-    image: "/images/eventoss-detail-coffee.jpg",
+    image: "/img/pankaj2.jpg",
     heroImage: "/images/gallery/office-exterior.webp",
     secondaryImage: "/images/gallery/event-setup.webp",
   },
