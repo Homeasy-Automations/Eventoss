@@ -36,9 +36,9 @@ export const projects: Project[] = [
     image: "dealersmeet.png",
     heroImage: "/img/coca.jpeg",
     gallery: [
-      "/images/eventoss-about.jpeg",
-      "/images/gallery/womens-day-stage.png",
-      "/images/blog/09-11-years-anniversary.jpeg",
+      "/img/location3.jpg",
+      "/logos/coca-cola.png",
+      "/img/cokemeet.png",
     ],
     story: [
       "Over two days in Goa, 180 senior leaders convened for a strategic alignment summit that had to feel intimate yet operate at enterprise scale.",
