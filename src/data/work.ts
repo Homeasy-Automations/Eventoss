@@ -64,9 +64,9 @@ export const projects: Project[] = [
     image: "dealers meet.png",
     heroImage: "/images/gallery/dealersmeethero.png",
     gallery: [
-      "/images/eventoss-detail-coffee.jpg",
-      "/images/gallery/promo-activity.webp",
-      "/images/blog/17-plan-your-event.jpg",
+      "/img/cokemeet.png",
+      "/img/slug/launch-slug3.png",
+      "/img/slug/mice-slug3.png",
     ],
     story: [
       "A 450-strong channel gathering in Patna demanded energy and clarity in equal measure. The brief: launch new schemes, demo products live, and close the night with recognition that feels earned.",
