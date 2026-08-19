@@ -105,7 +105,7 @@ export default function Home() {
               <div className="grid grid-cols-12 gap-4">
                 <div className="col-span-8 relative">
                   <motion.div initial={{ clipPath: "inset(0 100% 0 0)" }} whileInView={{ clipPath: "inset(0 0% 0 0)" }} viewport={{ once: true }} transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }} className="overflow-hidden">
-                    <img src="/img/husk.jpeg" alt="Stage" className="w-full h-[520px] lg:h-[640px] object-cover" />
+                    <video src="homepage.mp4" autoPlay loop muted playsInline className="w-full h-[520px] lg:h-[640px] object-cover"/>
                   </motion.div>
                   <p className="label-sm opacity-30 mt-2">01 — Stage & content architecture · Patna HQ</p>
                   {/* overlapping quote — editorial caption overlapping photo */}
