@@ -202,7 +202,7 @@ export const pillars: Pillar[] = [
         slug: "custom-booths-pavilions",
         title: "Custom Booths & Pavilion Design",
         blurb: "Stall design built to stop foot traffic, not just fill a floor plan.",
-        image: "/images/gallery/womens-day-stage.png",
+        image: "/img/slug/exhibition-slug1.jpg",
       },
       {
         slug: "branded-entrances-wayfinding",
@@ -214,13 +214,13 @@ export const pillars: Pillar[] = [
         slug: "visitor-engagement-zones",
         title: "Visitor Engagement Zones",
         blurb: "Demo spaces designed to hold attention past the first thirty seconds.",
-        image: "/images/gallery/womens-day-detail.png",
+        image: "/img/slug/exhibition-slug2.png",
       },
       {
         slug: "on-ground-exhibition-management",
         title: "On-Ground Exhibition Management",
         blurb: "Move-in to tear-down handled so the stall team can focus on visitors.",
-        image: "/images/gallery/stage-collage.webp",
+        image: "/img/slug/exhibition-slug3.png",
       },
     ],
     fullOfferings: [
@@ -230,7 +230,7 @@ export const pillars: Pillar[] = [
     ],
     image: "/img/Corporate-event3.jpg",
     heroImage: "/img/exhibitionhero.png",
-    secondaryImage: "/images/gallery/stage-collage.webp",
+    secondaryImage: "/img/slug/exhibition-slug2.png",
   },
   {
     slug: "live-entertainment",
