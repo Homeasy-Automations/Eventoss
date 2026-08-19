@@ -119,13 +119,13 @@ export const pillars: Pillar[] = [
         slug: "delegate-hospitality",
         title: "Delegate & Hospitality Management",
         blurb: "Every guest looked after, from airport pickup to the last handshake.",
-        image: "/images/gallery/team-outdoor.jpeg",
+        image: "/img/slug/conference-slug1.png",
       },
       {
         slug: "international-partner-conferences",
         title: "International & Partner Conferences",
         blurb: "Multi-city delegate networks run without a single dropped detail.",
-        image: "/images/eventoss-team-crowd.jpg",
+        image: "/img/slug/conference-slug2.png",
       },
       {
         slug: "on-ground-production-crew",
@@ -137,7 +137,7 @@ export const pillars: Pillar[] = [
         slug: "conference-production-av",
         title: "Conference Production & AV",
         blurb: "Sound, staging, and screens that disappear behind a flawless session.",
-        image: "/images/blog/02-seo-sem.jpeg",
+        image: "/img/slug/conference-slug3.png",
       },
     ],
     fullOfferings: [
@@ -146,8 +146,8 @@ export const pillars: Pillar[] = [
       "Hospitality & Guest Management", "Conference Production & AV",
     ],
     image: "/img/event.jpeg",
-    heroImage: "/images/gallery/team-outdoor.jpeg",
-    secondaryImage: "/images/blog/02-seo-sem.jpeg",
+    heroImage: "/img/conference-hero.png",
+    secondaryImage: "/img/slug/conference-slug2.png",
   },
   {
     slug: "mice",
