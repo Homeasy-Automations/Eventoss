@@ -290,7 +290,7 @@ export const pillars: Pillar[] = [
         slug: "inaugurations-foundation-ceremonies",
         title: "Inaugurations & Foundation Ceremonies",
         blurb: "Protocol-correct ceremonies for the moments that open something new.",
-        image: "/images/gallery/office-exterior.webp",
+        image: "/img/slug/gov-event-slug1.png",
       },
       {
         slug: "state-national-events",
@@ -312,7 +312,7 @@ export const pillars: Pillar[] = [
       "State & National Level Events", "Protocol & VIP Management",
     ],
     image: "/img/pankaj2.jpg",
-    heroImage: "/images/gallery/office-exterior.webp",
+    heroImage: "/img/governmenthero.png",
     secondaryImage: "/images/gallery/event-setup.webp",
   },
   {

@@ -135,7 +135,7 @@ export default async function ServiceDetail({ params }: { params: Promise<{ slug
       <section className="mx-auto max-w-[1920px] px-6 lg:px-10 pb-12">
         <Reveal className="grid lg:grid-cols-3 gap-4">
           <div className="group overflow-hidden relative lg:col-span-2">
-            <img src={service.image} alt={service.title} className="img-zoom w-full h-[420px] object-cover" />
+            <img src={service.image} alt={service.title} className="img-zoom w-full h-[420px] object-top" />
             <span className="curtain-overlay absolute inset-0 bg-gradient-to-t from-[#0F2A3D]/40 via-[#0F2A3D]/0 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
           </div>
           <div className="group overflow-hidden relative">
