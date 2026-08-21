@@ -18,7 +18,7 @@ export default function AboutPage() {
         chipLeft="01 — Corporate Events Division"
         chipRight="Patna · Delhi · Ranchi"
         bottomLabel="EVENTOSS ENTERTAINMENT · ABOUT THE DIVISION"
-        eyebrow="ABOUT THE DIVISION · EST. 2012 · 12+ YEARS"
+        eyebrow="ABOUT THE DIVISION · EST. 2010 · 16+ YEARS"
         heading={
           <span className="block text-[12vw] lg:text-[5vw]">
             Corporate events is our{" "}
@@ -54,7 +54,7 @@ export default function AboutPage() {
           <Reveal direction="right" className="lg:col-span-5">
             <p className="label-sm opacity-30 lg:hidden">Our story — 01</p>
             <h2 className="text-[30px] lg:text-[42px] leading-[0.92] tracking-[-0.03em] mt-4" style={{ fontFamily: "var(--font-playfair)" }}>
-              <WordReveal as="span" className="block" text="A decade-long legacy," />
+              <WordReveal as="span" className="block" text="More than a decade-long legacy," />
               <span className="block"><span className="italic font-light">focused on</span> corporate impact.</span>
             </h2>
             <div className="mt-8 space-y-5 text-[15px] leading-7 opacity-60 max-w-[520px]">
@@ -62,7 +62,7 @@ export default function AboutPage() {
               <p>From intimate leadership forums to thousand-guest family days, we bring the same discipline — research-led concepts, rigorous production, and calm show-day execution.</p>
             </div>
             <div className="mt-10 grid grid-cols-3 gap-6 border-t border-[#0F2A3D]/10 pt-8 max-w-[520px]">
-              <div><p className="text-xl" style={{ fontFamily: "var(--font-playfair)" }}>2012</p><p className="label-sm opacity-30">Founded</p></div>
+              <div><p className="text-xl" style={{ fontFamily: "var(--font-playfair)" }}>2010</p><p className="label-sm opacity-30">Founded</p></div>
               <div><p className="text-xl" style={{ fontFamily: "var(--font-playfair)" }}>Patna</p><p className="label-sm opacity-30">HQ</p></div>
               <div><p className="text-xl" style={{ fontFamily: "var(--font-playfair)" }}>India</p><p className="label-sm opacity-30">Pan-India</p></div>
             </div>
@@ -101,9 +101,9 @@ export default function AboutPage() {
               <div className="bg-white border border-[#0F2A3D]/10 p-6 lg:p-10">
                 <img src="Aliwaris1.jpg" alt="Map editorial" className="w-full h-[380px] object-top" />
                 <div className="grid grid-cols-3 gap-6 mt-8 border-t border-[#0F2A3D]/10 pt-6">
-                  <div><p className="text-2xl font-light" style={{ fontFamily: "var(--font-playfair)" }}>12+</p><p className="label-sm opacity-30">Years</p></div>
-                  <div><p className="text-2xl font-light" style={{ fontFamily: "var(--font-playfair)" }}>410+</p><p className="label-sm opacity-30">Clients</p></div>
-                  <div><p className="text-2xl font-light" style={{ fontFamily: "var(--font-playfair)" }}>4,700+</p><p className="label-sm opacity-30">Projects</p></div>
+                  <div><p className="text-2xl font-light" style={{ fontFamily: "var(--font-playfair)" }}>16+</p><p className="label-sm opacity-30">Years</p></div>
+                  <div><p className="text-2xl font-light" style={{ fontFamily: "var(--font-playfair)" }}>525+</p><p className="label-sm opacity-30">Clients</p></div>
+                  <div><p className="text-2xl font-light" style={{ fontFamily: "var(--font-playfair)" }}>5,000+</p><p className="label-sm opacity-30">Projects</p></div>
                 </div>
               </div>
             </Reveal>
@@ -115,12 +115,12 @@ export default function AboutPage() {
       <section className="mx-auto max-w-[1920px] px-6 lg:px-10 py-10 lg:py-16">
         <Reveal className="border-b border-[#0F2A3D]/10 pb-8 flex justify-between items-end">
           <div><p className="label-sm opacity-30">What shapes us — 03</p><h3 className="text-[30px] lg:text-[44px] leading-none tracking-[-0.03em] mt-4" style={{ fontFamily: "var(--font-playfair)" }}>Four traits that shape <span className="italic font-light">every engagement</span></h3></div>
-          <p className="hidden lg:block label-sm opacity-20">Est. 2012 · Pattern · Precision · Pull</p>
+          <p className="hidden lg:block label-sm opacity-20">Est. 2010 · Pattern · Precision · Pull</p>
         </Reveal>
         <div className="mt-10 grid lg:grid-cols-12 gap-6">
           <Reveal delay={0.05} className="lg:col-span-7 border border-[#0F2A3D]/10 overflow-hidden bg-[#FCFCFB] grid lg:grid-cols-2">
             <img src="/images/eventoss-team-crowd.jpg" alt="Experience" className="w-full h-[360px] object-cover" />
-            <div className="p-7 flex flex-col justify-center"><p className="label-sm opacity-20">01</p><h4 className="text-[22px] mt-2" style={{ fontFamily: "var(--font-playfair)" }}>Experience</h4><p className="text-[13.5px] leading-6 opacity-60 mt-3">Twelve years and 4,700+ projects mean we anticipate edge cases before they become problems.</p></div>
+            <div className="p-7 flex flex-col justify-center"><p className="label-sm opacity-20">01</p><h4 className="text-[22px] mt-2" style={{ fontFamily: "var(--font-playfair)" }}>Experience</h4><p className="text-[13.5px] leading-6 opacity-60 mt-3">Sixteen years and 5,000+ projects mean we anticipate edge cases before they become problems.</p></div>
           </Reveal>
           <Reveal delay={0.1} className="lg:col-span-5 border border-[#0F2A3D]/10 overflow-hidden bg-white">
             <img src="inovation.png" alt="Innovative" className="w-full h-[220px] object-cover" />

@@ -68,7 +68,7 @@ export default function Footer() {
             <p className="label-sm text-white/35 mb-6">Contact</p>
             <div className="space-y-3 text-sm">
               <a href="mailto:info@eventoss.in" className="group relative inline-block text-white hover:text-white text-[15px] transition-colors duration-300">
-                info@eventoss.in
+                connect@eventossnetwork.com
                 <span className="absolute left-0 -bottom-0.5 h-px bg-[#FF3D00] w-0 group-hover:w-full transition-all duration-300" />
               </a>
               <div className="text-white/50 leading-relaxed text-[13px]">

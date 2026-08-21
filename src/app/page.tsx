@@ -45,8 +45,8 @@ export default function Home() {
         poster="/images/eventoss-hero-stage.jpg"
         chipLeft="Corporate Events · Pan-India"
         chipRight="Patna · Delhi · Ranchi"
-        eyebrow="EVENTOSS ENTERTAINMENT · EST. 2012 · 410+ CLIENTS"
-        subcopy="Twelve years of research-led planning, sharp production, and calm show-day execution — for conferences, dealer meets, product launches, and culture celebrations across India."
+        eyebrow="EVENTOSS ENTERTAINMENT · EST. 2010 · 525+ CLIENTS"
+        subcopy="Sixteen years of research-led planning, sharp production, and calm show-day execution — for conferences, dealer meets, product launches, and culture celebrations across India."
         ctas={[
           { label: "About Us", href: "/about" },
           { label: "Our Work", href: "/work" },
@@ -82,7 +82,7 @@ export default function Home() {
               </h2>
               <div className="mt-8 space-y-5 max-w-[520px]">
                 <p className="text-[15px] leading-7 opacity-70">
-                  <span className="dropcap">F</span>or over twelve years, Eventoss Entertainment has helped organisations across India run conferences, channel meets, leadership forums, product launches, and culture celebrations with clarity and impact.
+                  <span className="dropcap">F</span>or over sixteen years, Eventoss Entertainment has helped organisations across India run conferences, channel meets, leadership forums, product launches, and culture celebrations with clarity and impact.
                 </p>
                 <p className="text-[15px] leading-7 opacity-60">
                   This site is dedicated to our Corporate Events division — focused planning, sharp production, and on-ground teams that treat every brief like a brand moment.
@@ -93,9 +93,9 @@ export default function Home() {
                 <span className="w-7 h-7 rounded-full bg-[#0F2A3D] text-white flex items-center justify-center text-xs">→</span>
               </div>
               <div className="mt-8 flex gap-6 border-t border-[#0F2A3D]/10 pt-6 max-w-[520px]">
-                <div><p className="text-xl font-light" style={{ fontFamily: "var(--font-playfair)" }}>12+</p><p className="label-sm opacity-30">Years</p></div>
+                <div><p className="text-xl font-light" style={{ fontFamily: "var(--font-playfair)" }}>16+</p><p className="label-sm opacity-30">Years</p></div>
                 <div className="w-px bg-[#0F2A3D]/10" />
-                <div><p className="text-xl font-light" style={{ fontFamily: "var(--font-playfair)" }}>410+</p><p className="label-sm opacity-30">Clients</p></div>
+                <div><p className="text-xl font-light" style={{ fontFamily: "var(--font-playfair)" }}>525+</p><p className="label-sm opacity-30">Clients</p></div>
                 <div className="w-px bg-[#0F2A3D]/10" />
                 <div><p className="text-xl font-light" style={{ fontFamily: "var(--font-playfair)" }}>Pan-India</p><p className="label-sm opacity-30">Presence</p></div>
               </div>
@@ -120,7 +120,7 @@ export default function Home() {
                   </motion.div>
                   <div className="bg-[#0F2A3D] text-white p-5 flex-1 flex flex-col justify-center">
                     <p className="label-sm opacity-40">Trusted by</p>
-                    <p className="text-sm leading-6 mt-2">410+ clients across BFSI, FMCG, Tech & Manufacturing</p>
+                    <p className="text-sm leading-6 mt-2">525+ clients across BFSI, FMCG, Tech & Manufacturing</p>
                     <span className="mt-4 w-6 h-6 rounded-full border border-white/20 flex items-center justify-center text-xs">↗</span>
                   </div>
                   <p className="label-sm opacity-20 hidden lg:block">— 8 offices · Local fluency</p>
@@ -146,7 +146,7 @@ export default function Home() {
             <Reveal direction="right" className="lg:col-span-4">
               <p className="label-sm text-white/40">Legacy in numbers</p>
               <h3 className="text-[36px] lg:text-[44px] leading-[0.9] tracking-[-0.03em] mt-4 text-white" style={{ fontFamily: "var(--font-playfair)" }}>
-                Twelve years<br /><span className="italic font-light">and thousands</span><br />of show-days.
+                Sixteen years<br /><span className="italic font-light">and thousands</span><br />of show-days.
               </h3>
               <p className="text-sm leading-6 text-white/50 mt-4 max-w-[360px]">Not dashboard metrics — muscle memory that anticipates edge cases before they surface.</p>
               <div className="hairline-white mt-8 opacity-20" />
@@ -154,18 +154,18 @@ export default function Home() {
             {/* numbers — varied sizes, asymmetric */}
             <Reveal direction="left" delay={0.1} className="lg:col-span-7 grid grid-cols-12 gap-0">
               <div className="col-span-5 lg:col-span-4 border-r border-white/10 pr-6 py-6">
-                <p className="text-[56px] lg:text-[84px] font-black leading-none tracking-[-0.05em] text-white"><CountUp end={12} suffix="+" /></p>
+                <p className="text-[56px] lg:text-[84px] font-black leading-none tracking-[-0.05em] text-white"><CountUp end={16} suffix="+" /></p>
                 <p className="label-sm text-white/50 mt-2">Years</p>
-                <p className="text-xs text-white/30 mt-1">Since 2012 · Patna HQ</p>
+                <p className="text-xs text-white/30 mt-1">Since 2010 · Patna HQ</p>
               </div>
               <div className="col-span-7 lg:col-span-8 pl-6 lg:pl-10 py-6">
-                <p className="text-[48px] lg:text-[72px] font-black leading-none tracking-[-0.05em] text-white"><CountUp end={410} suffix="+" /></p>
+                <p className="text-[48px] lg:text-[72px] font-black leading-none tracking-[-0.05em] text-white"><CountUp end={525} suffix="+" /></p>
                 <p className="label-sm text-white/50 mt-2">Clients</p>
                 <p className="text-xs text-white/30 mt-1">BFSI · FMCG · Tech · Manufacturing</p>
               </div>
               <div className="col-span-12 border-t border-white/10 pt-8 mt-2 grid grid-cols-12 gap-6">
                 <div className="col-span-8 lg:col-span-7">
-                  <p className="text-[64px] lg:text-[110px] font-black leading-none tracking-[-0.06em] text-white"><CountUp end={4700} suffix="+" /></p>
+                  <p className="text-[64px] lg:text-[110px] font-black leading-none tracking-[-0.06em] text-white"><CountUp end={5000} suffix="+" /></p>
                   <p className="label-sm text-white/50 mt-2">Projects</p>
                   <p className="text-xs text-white/30 mt-1 max-w-[320px]">Conferences, dealer meets, summits, launches, galas, family days — calm under scale.</p>
                 </div>
@@ -418,7 +418,7 @@ export default function Home() {
               <WordReveal as="span" className="block" text="SEEN A SMOOTHER" delay={0.16} />
               <span className="block ml-[6%] text-[#0F2A3D]" style={{ fontFamily: "var(--font-inter)", fontWeight: 900 }}>SHOW-DAY.</span>
             </h2>
-            <p className="label-sm opacity-30 mt-4">— 410+ clients · BFSI · FMCG · Tech · Manufacturing</p>
+            <p className="label-sm opacity-30 mt-4">— 525+ clients · BFSI · FMCG · Tech · Manufacturing</p>
           </Reveal>
 
           <div className="mt-14 grid lg:grid-cols-12 gap-10 lg:gap-12 items-start">
@@ -442,7 +442,7 @@ export default function Home() {
                   "End-to-end planning & production",
                   "Founder-led client partnerships",
                   "Multi-city delivery capability",
-                  "4,700+ projects of muscle memory",
+                  "5,000+ projects of muscle memory",
                   "Clear process, zero show-day chaos",
                   "Creative that serves business goals",
                 ].map((item, idx) => (
