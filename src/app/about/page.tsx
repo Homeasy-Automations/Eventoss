@@ -69,7 +69,7 @@ export default function AboutPage() {
           </Reveal>
           <Reveal direction="left" delay={0.1} className="lg:col-span-6 relative">
             <div className="grid grid-cols-12 gap-4">
-              <div className="col-span-8"><img src="/images/eventoss-about.jpeg" alt="Story" className="w-full h-[520px] object-cover" /></div>
+              <div className="col-span-8"><img src="/img/husk.jpeg" alt="Story" className="w-full h-[520px] object-cover" /></div>
               <div className="col-span-4 flex flex-col gap-4">
                 <img src="/images/gallery/team-outdoor.jpeg" alt="detail" className="w-full h-[250px] object-cover" />
                 <div className="bg-[#F4F3F0] p-6 border border-[#0F2A3D]/5 flex-1"><p className="label-sm opacity-30">Legacy</p><p className="text-lg leading-tight mt-3" style={{ fontFamily: "var(--font-playfair)" }}>5,000+ projects of pattern recognition — so edge cases are solved before they surface.</p></div>

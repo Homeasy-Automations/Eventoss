@@ -46,7 +46,7 @@ export default async function ServiceDetail({ params }: { params: Promise<{ slug
             <Link href="/work" className="border border-[#0F2A3D]/15 px-7 h-10 inline-flex items-center label-sm hover:bg-[#0F2A3D] hover:text-white">View work</Link>
           </div>
           <Reveal className="mt-8 overflow-hidden h-[360px] lg:h-[460px]">
-            <img src={service.heroImage} alt={service.title} className="w-full h-full object-cover" />
+            <img src={service.heroImage} alt={service.title} className="w-full h-full object-top" />
           </Reveal>
         </div>
       </section>

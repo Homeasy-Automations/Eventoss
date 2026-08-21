@@ -255,13 +255,13 @@ export const pillars: Pillar[] = [
         slug: "celebrity-led-events",
         title: "Celebrity-Led Events",
         blurb: "Artist management and security handled so the moment stays on script.",
-        image: "/images/gallery/celebrity-event.png",
+        image: "/img/slug/liveevent-slug1.jpg",
       },
       {
         slug: "cultural-festivals-dj-nights",
         title: "Cultural Festivals & DJ Nights",
         blurb: "High-energy nights built on crowd management as much as production.",
-        image: "/images/blog/09-11-years-anniversary.jpeg",
+        image: "/img/slug/liveevent-slug2.png",
       },
     ],
     fullOfferings: [
@@ -269,9 +269,9 @@ export const pillars: Pillar[] = [
       "DJ Nights", "Celebrity Events", "Artist Management", "Fashion Shows", "Award Shows",
       "Entertainment IPs", "Public Events", "Ticketed Events",
     ],
-    image: "Corporate-event2.jpg",
-    heroImage: "/images/eventoss-hero-stage.jpg",
-    secondaryImage: "/images/gallery/celebrity-event.png",
+    image: "/img/Corporate-event2.jpg",
+    heroImage: "/img/livehero.png",
+    secondaryImage: "/img/slug/liveevent-slug1.jpg",
   },
   {
     slug: "government-public-events",
